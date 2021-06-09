@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "egg-oa-sys",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+08:00"
+  }
+}
