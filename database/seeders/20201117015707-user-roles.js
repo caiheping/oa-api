@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async queryInterface => {
     /**
      * Add seed commands here.
      *
@@ -13,11 +13,11 @@ module.exports = {
     */
     await queryInterface.bulkInsert('user_roles', [{
       userId: 1,
-      roleId: 1
+      roleId: 1,
     }], {});
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async queryInterface => {
     /**
      * Add commands to revert seed here.
      *
@@ -25,5 +25,5 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('user_roles', null, {});
-  }
+  },
 };

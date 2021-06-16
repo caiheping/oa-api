@@ -8,18 +8,18 @@ module.exports = app => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: INTEGER
+      type: INTEGER,
     },
     roleId: {
       allowNull: false,
       type: INTEGER,
-      comment: '角色roleId'
+      comment: '角色roleId',
     },
     menuId: {
       allowNull: false,
       type: INTEGER,
-      comment: '菜单menuId'
-    }
+      comment: '菜单menuId',
+    },
   });
 
   return RoleMenu;

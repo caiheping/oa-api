@@ -6,56 +6,56 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       noticeTitle: {
         allowNull: false,
         type: Sequelize.STRING,
-        comment: '公告标题'
+        comment: '公告标题',
       },
       noticeType: {
         allowNull: false,
         type: Sequelize.STRING,
         defaultValue: '1',
-        comment: '公告类型（1通知 2公告）'
+        comment: '公告类型（1通知 2公告）',
       },
       noticeContent: {
         allowNull: false,
         type: Sequelize.STRING,
-        comment: '内容'
+        comment: '内容',
       },
       status: {
         type: Sequelize.STRING,
         defaultValue: '1',
-        comment: '公告状态（1正常 0停用）'
+        comment: '公告状态（1正常 0停用）',
       },
       remark: {
         type: Sequelize.STRING,
-        comment: '备注'
+        comment: '备注',
       },
       createdAt: {
         allowNull: true,
         type: Sequelize.DATE,
-        comment: '创建时间'
+        comment: '创建时间',
       },
       createdBy: {
         allowNull: true,
         type: Sequelize.STRING,
-        comment: '创建者'
+        comment: '创建者',
       },
       updatedAt: {
         allowNull: true,
         type: Sequelize.DATE,
-        comment: '更新时间'
+        comment: '更新时间',
       },
       updatedBy: {
         allowNull: true,
         type: Sequelize.STRING,
-        comment: '更新者'
-      }
+        comment: '更新者',
+      },
     });
   },
-  down: async (queryInterface, Sequelize) => {
+  down: async queryInterface => {
     await queryInterface.dropTable('notices');
-  }
+  },
 };

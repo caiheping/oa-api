@@ -1,3 +1,5 @@
+'use strict';
+
 const jwt = require('jsonwebtoken');
 const { checkWhiteList, handleTree } = require('../utils/tools');
 const Sequelize = require('sequelize');
@@ -5,8 +7,8 @@ const Op = Sequelize.Op;
 
 module.exports = (options, app) => {
   return async function(ctx, next) {
-    let parentWhiteLists = app.config.whiteList.filter(item => item.lastIndexOf('/*') !== -1)
-    let whiteLists = app.config.whiteList.filter(item => item.lastIndexOf('/*') === -1)
+    const parentWhiteLists = app.config.whiteList.filter(item => item.lastIndexOf('/*') !== -1);
+    const whiteLists = app.config.whiteList.filter(item => item.lastIndexOf('/*') === -1);
     if (!checkWhiteList(ctx, parentWhiteLists) && !whiteLists.includes(ctx.request.path)) {
       // 拿到传会数据的header 中的token值
       const token = ctx.request.header.authorization ? ctx.request.header.authorization.split(' ')[1] : null;
@@ -24,43 +26,43 @@ module.exports = (options, app) => {
         }
         const user = await ctx.model.Users.findOne({
           where: {
-            id: decode.id
+            id: decode.id,
           },
           include: [{
-            model: ctx.model['Roles'],
-            as: 'roles'
-          }]
+            model: ctx.model.Roles,
+            as: 'roles',
+          }],
         });
         if (user) {
-          ctx.state.user = user
-          let departments = await ctx.model.Departments.findAndCountAll();
+          ctx.state.user = user;
+          const departments = await ctx.model.Departments.findAndCountAll();
           ctx.state.departmentsObj = handleTree(departments.rows, 'deptId');
           if (ctx.state.user.id === 1) { // 超级管理员权限
             ctx.state.permissions = [
-              "*:*:*"
-            ]
+              '*:*:*',
+            ];
           } else {
-            let roleIds = ctx.state.user.roles.map(item => item.id)
-            let menus = await ctx.model["RoleMenu"].findAll({
+            const roleIds = ctx.state.user.roles.map(item => item.id);
+            const menus = await ctx.model.RoleMenu.findAll({
               where: {
                 roleId: {
-                  [Op.or]: roleIds
-                }
-              }
-            })
-            let menuIds = menus.map(item => item.menuId)
-            let obj = {
+                  [Op.or]: roleIds,
+                },
+              },
+            });
+            const menuIds = menus.map(item => item.menuId);
+            const obj = {
               where: {
                 id: {
-                  [Op.or]: menuIds
+                  [Op.or]: menuIds,
                 },
-                status: '1' // 查询启用的菜单
+                status: '1', // 查询启用的菜单
               },
-              order: [['orderNum', 'ASC']]
-            }
-            let result = await ctx.model['Menus'].findAndCountAll(obj);
-            let list = result.rows.filter(item => item.menuType === 'F')
-            ctx.state.permissions = list.map(list => list.perms) // 权限标识
+              order: [[ 'orderNum', 'ASC' ]],
+            };
+            const result = await ctx.model.Menus.findAndCountAll(obj);
+            const list = result.rows.filter(item => item.menuType === 'F');
+            ctx.state.permissions = list.map(list => list.perms); // 权限标识
           }
           await next();
         } else {

@@ -1,47 +1,47 @@
 'use strict';
 
-const BaseService = require("../../base");
+const BaseService = require('../../base');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 
 class Service extends BaseService {
   constructor(...arg) {
-    super(...arg)
-    this.modelName = 'DictType'
+    super(...arg);
+    this.modelName = 'DictType';
   }
 
   // 删除
-  async destroy (ids) {
+  async destroy(ids) {
     try {
       // 建立事务对象
-      let transaction = await this.ctx.model.transaction();
-      
-      let dictType = await this.ctx.model[this.modelName].findAll({
+      const transaction = await this.ctx.model.transaction();
+
+      const dictType = await this.ctx.model[this.modelName].findAll({
         where: {
           id: {
-            [Op.or]: ids
-          }
+            [Op.or]: ids,
+          },
         },
-        transaction
+        transaction,
       });
-      let dictTypeLists = dictType.map(item => item.dictType);
-      
+      const dictTypeLists = dictType.map(item => item.dictType);
+
       await this.ctx.model.DictData.destroy({
         where: {
           dictType: {
-            [Op.or]: dictTypeLists
-          }
+            [Op.or]: dictTypeLists,
+          },
         },
-        transaction
+        transaction,
       });
       await this.ctx.model[this.modelName].destroy({
         where: {
           id: {
-            [Op.or]: ids
-          }
+            [Op.or]: ids,
+          },
         },
-        transaction
+        transaction,
       });
       // 提交事务
       await transaction.commit();

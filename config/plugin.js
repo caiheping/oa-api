@@ -13,7 +13,7 @@ module.exports = {
   // 加密
   bcrypt: {
     enable: true,
-    package: 'egg-bcrypt'
+    package: 'egg-bcrypt',
   },
   // 验证
   validatePlus: {
@@ -24,5 +24,5 @@ module.exports = {
   cors: {
     enable: true,
     package: 'egg-cors',
-  }
+  },
 };

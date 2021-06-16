@@ -8,47 +8,47 @@ module.exports = app => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: INTEGER
+      type: INTEGER,
     },
     userId: {
       allowNull: false,
       type: INTEGER,
-      comment: '用户id'
+      comment: '用户id',
     },
     title: {
       allowNull: false,
       type: STRING,
-      comment: '名称'
+      comment: '名称',
     },
     url: {
       allowNull: false,
       type: STRING,
-      comment: '链接'
+      comment: '链接',
     },
     remark: {
       type: STRING,
-      comment: '备注'
+      comment: '备注',
     },
     createdAt: {
       allowNull: true,
       type: DATE,
-      comment: '创建时间'
+      comment: '创建时间',
     },
     createdBy: {
       allowNull: true,
       type: STRING,
-      comment: '创建者'
+      comment: '创建者',
     },
     updatedAt: {
       allowNull: true,
       type: DATE,
-      comment: '更新时间'
+      comment: '更新时间',
     },
     updatedBy: {
       allowNull: true,
       type: STRING,
-      comment: '更新者'
-    }
+      comment: '更新者',
+    },
   });
 
   return FriendlyLink;

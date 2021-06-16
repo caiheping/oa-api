@@ -2,10 +2,10 @@
 
 const rule = {
   userName: [
-    { required: true, message: '用户名不能为空' }
+    { required: true, message: '用户名不能为空' },
   ],
   password: [
-    { required: true, message: '密码不能为空' }
+    { required: true, message: '密码不能为空' },
     // {
     //   // eslint-disable-next-line no-unused-vars
     //   validator(rule, value, callback, source, options) {
@@ -21,9 +21,9 @@ const rule = {
   captcha: [
     {
       required: true,
-      message: '验证码不能为空'
-    }
-  ]
+      message: '验证码不能为空',
+    },
+  ],
 };
 
 module.exports = rule;

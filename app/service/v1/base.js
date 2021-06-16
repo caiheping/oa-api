@@ -6,59 +6,59 @@ const Op = Sequelize.Op;
 
 class BaseService extends Service {
   // 查询, 传页码，分页返回，否则全部返回
-  async findList(query, order=[['createdAt', 'DESC']]) {
-    let obj = {
+  async findList(query, order = [[ 'createdAt', 'DESC' ]]) {
+    const obj = {
       where: {},
-      order
-    }
+      order,
+    };
     if (query.offset) {
-      query.limit = query.limit ? query.limit : 10
-      query.offset = (query.offset - 1) * query.limit
-      obj.limit = query.limit
-      obj.offset = query.offset
+      query.limit = query.limit ? query.limit : 10;
+      query.offset = (query.offset - 1) * query.limit;
+      obj.limit = query.limit;
+      obj.offset = query.offset;
     } else {
-      query.limit = null
-      query.offset = null
+      query.limit = null;
+      query.offset = null;
     }
-    for (let key in query) {
+    for (const key in query) {
       if (key !== 'limit' && key !== 'offset') {
         if (!query[key]) {
-          query[key] = ''
+          query[key] = '';
         }
         obj.where[key] = {
-          [Op.like]:'%' + query[key] + '%'
-        }
+          [Op.like]: '%' + query[key] + '%',
+        };
       }
     }
     return await this.ctx.model[this.modelName].findAndCountAll(obj);
   }
 
   // 查询某条数据
-  async findByPk (id) {
+  async findByPk(id) {
     return await this.ctx.model[this.modelName].findByPk(id);
   }
 
   // 新增
-  async create (query) {
+  async create(query) {
     return await this.ctx.model[this.modelName].create(query);
   }
 
   // 修改
-  async update (query, where) {
+  async update(query, where) {
     return await this.ctx.model[this.modelName].update(query, {
-      where
+      where,
     });
   }
 
   // 删除
-  async destroy (ids) {
+  async destroy(ids) {
     return await this.ctx.model[this.modelName].destroy({
       where: {
         id: {
-          [Op.or]: ids
-        }
-      }
-    })
+          [Op.or]: ids,
+        },
+      },
+    });
   }
 }
 

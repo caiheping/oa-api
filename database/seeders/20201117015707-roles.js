@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async queryInterface => {
     /**
      * Add seed commands here.
      *
@@ -18,11 +18,11 @@ module.exports = {
       dataScope: '1',
       status: '1',
       createdAt: new Date(),
-      createdBy: 'admin'
+      createdBy: 'admin',
     }], {});
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async queryInterface => {
     /**
      * Add commands to revert seed here.
      *
@@ -30,5 +30,5 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('roles', null, {});
-  }
+  },
 };

@@ -1,12 +1,12 @@
 'use strict';
 
-const BaseService = require("../../base");
+const BaseService = require('../../base');
 
 
 class Service extends BaseService {
   constructor(...arg) {
-    super(...arg)
-    this.modelName = 'Notice'
+    super(...arg);
+    this.modelName = 'Notice';
   }
 }
 

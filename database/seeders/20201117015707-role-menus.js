@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async queryInterface => {
     /**
      * Add seed commands here.
      *
@@ -13,37 +13,37 @@ module.exports = {
     */
     await queryInterface.bulkInsert('role_menus', [
       {
-        "roleId": 1,
-        "menuId": 1
+        roleId: 1,
+        menuId: 1,
       },
       {
-        "roleId": 1,
-        "menuId": 2
+        roleId: 1,
+        menuId: 2,
       },
       {
-        "roleId": 1,
-        "menuId": 3
+        roleId: 1,
+        menuId: 3,
       },
       {
-        "roleId": 1,
-        "menuId": 4
+        roleId: 1,
+        menuId: 4,
       },
       {
-        "roleId": 1,
-        "menuId": 5
+        roleId: 1,
+        menuId: 5,
       },
       {
-        "roleId": 1,
-        "menuId": 6
+        roleId: 1,
+        menuId: 6,
       },
       {
-        "roleId": 1,
-        "menuId": 7
+        roleId: 1,
+        menuId: 7,
       },
     ], {});
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async queryInterface => {
     /**
      * Add commands to revert seed here.
      *
@@ -51,5 +51,5 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('role_menus', null, {});
-  }
+  },
 };

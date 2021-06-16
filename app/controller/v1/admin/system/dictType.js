@@ -1,18 +1,18 @@
 'use strict';
 // app/controller/users.js
-const BaseController = require("../../base");
+const BaseController = require('../../base');
 
 
 class Controller extends BaseController {
   constructor(...arg) {
-    super(...arg)
-    this.serviceName = 'dictType'
-    this.modleName = 'system'
+    super(...arg);
+    this.serviceName = 'dictType';
+    this.modleName = 'system';
   }
 
   // 查询
   async index() {
-    const {ctx, service} = this;
+    const { ctx, service } = this;
     // 查询参数
     const query = {
       limit: ctx.helper.parseInt(ctx.query.pageSize),

@@ -9,17 +9,17 @@ class CommonService extends Service {
     // 在当前数据库中验证此用户思否存在
     const result = await ctx.model.Users.findOne({
       where: {
-        userName: query.userName
+        userName: query.userName,
       },
       include: [
         {
-          model: this.ctx.model['Departments']
+          model: this.ctx.model.Departments,
         },
         // {
         //   model: this.ctx.model['Roles'],
         //   as: 'roles'
         // }
-      ]
+      ],
     });
     return result;
   }
@@ -33,7 +33,7 @@ class CommonService extends Service {
       ignoreChars: '0oO1ilI', // 验证码字符中排除 0o1i
       noise: 2, // 干扰线条的数量
       color: true, // 验证码的字符是否有颜色，默认没有，如果设定了背景，则默认有
-      bacground: '#cc9966'
+      bacground: '#cc9966',
     });
     this.ctx.session.code = captcha.text;
     return captcha;

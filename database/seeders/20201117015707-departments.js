@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async queryInterface => {
     /**
      * Add seed commands here.
      *
@@ -13,31 +13,31 @@ module.exports = {
     */
     await queryInterface.bulkInsert('departments', [
       {
-        "parentId": 0,
-        "deptName": "总部",
-        "orderNum": 1,
-        "status": "1",
-        "isDelete": "0",
-        "createdAt": new Date(),
-        "createdBy": "admin",
-        "updatedAt": null,
-        "updatedBy": null
+        parentId: 0,
+        deptName: '总部',
+        orderNum: 1,
+        status: '1',
+        isDelete: '0',
+        createdAt: new Date(),
+        createdBy: 'admin',
+        updatedAt: null,
+        updatedBy: null,
       },
       {
-        "parentId": 1,
-        "deptName": "技术部",
-        "orderNum": 1,
-        "status": "1",
-        "isDelete": "0",
-        "createdAt": new Date(),
-        "createdBy": "admin",
-        "updatedAt": null,
-        "updatedBy": null
-      }
+        parentId: 1,
+        deptName: '技术部',
+        orderNum: 1,
+        status: '1',
+        isDelete: '0',
+        createdAt: new Date(),
+        createdBy: 'admin',
+        updatedAt: null,
+        updatedBy: null,
+      },
     ], {});
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async queryInterface => {
     /**
      * Add commands to revert seed here.
      *
@@ -45,5 +45,5 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('departments', null, {});
-  }
+  },
 };

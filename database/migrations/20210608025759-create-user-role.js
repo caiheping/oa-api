@@ -7,21 +7,21 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: INTEGER
+        type: INTEGER,
       },
       userId: {
         allowNull: false,
         type: INTEGER,
-        comment: '用户id'
+        comment: '用户id',
       },
       roleId: {
         allowNull: false,
         type: INTEGER,
-        comment: '角色id'
-      }
+        comment: '角色id',
+      },
     });
   },
-  down: async (queryInterface, Sequelize) => {
+  down: async queryInterface => {
     await queryInterface.dropTable('user_roles');
-  }
+  },
 };
