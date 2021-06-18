@@ -22,7 +22,7 @@ module.exports = appInfo => {
 
   // add your user config here
   const userConfig = {
-    // myAppName: 'crm-egg',
+    // myAppName: 'oa-egg',
   };
 
   // file模式上传文件
@@ -41,7 +41,7 @@ module.exports = appInfo => {
   };
 
   config.jwt = {
-    secret: 'crm-api-jwt',
+    secret: 'oa-api-jwt',
     expiresIn: 60 * 60 * 24, // 1天过期
   };
 
@@ -80,7 +80,7 @@ module.exports = appInfo => {
     host: '127.0.0.1',
     port: 3306,
     password: '123456', // 数据库密码
-    database: 'egg-crm-sys',
+    database: 'egg-oa-sys',
     timezone: '+8:00', // 由于orm用的UTC时间，这里必须加上东八区，否则取出来的时间相差8小时
     define: { // model的全局配置
       timestamps: false, // 添加create,update,delete时间戳
