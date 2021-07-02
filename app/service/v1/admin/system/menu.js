@@ -45,7 +45,15 @@ class Service extends BaseService {
   // 新增
   async create(query) {
     query.name = query.component; // name 和 component 一样
-    return await this.ctx.model[this.modelName].create(query);
+    try {
+      return await this.ctx.model[this.modelName].create(query);
+    } catch (error) {
+      if (error.name === 'SequelizeUniqueConstraintError') {
+        throw Error(`${query.component}已经注册，请选择没有被注册的组件`);
+      } else {
+        throw Error('服务器错误！');
+      }
+    }
   }
 
 

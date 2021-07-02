@@ -40,6 +40,10 @@ module.exports = {
         roleId: 1,
         menuId: 7,
       },
+      {
+        roleId: 1,
+        menuId: 8,
+      },
     ], {});
   },
 
