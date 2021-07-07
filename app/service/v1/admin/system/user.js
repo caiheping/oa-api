@@ -19,6 +19,9 @@ class Service extends BaseService {
       order,
       include: [{
         model: this.ctx.model.Departments,
+      }, {
+        model: this.ctx.model.Roles,
+        as: 'roles',
       }],
     };
     if (query.offset) {
@@ -161,6 +164,9 @@ class Service extends BaseService {
 
   // 删除
   async destroy(ids) {
+    if (ids.includes('1')) {
+      this.ctx.throw('超级管理员不能被删除');
+    }
     try {
       // 建立事务对象
       const transaction = await this.ctx.model.transaction();

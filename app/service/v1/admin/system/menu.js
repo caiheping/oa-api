@@ -13,7 +13,9 @@ class Service extends BaseService {
 
   async findAllMenu() {
     const obj = {
-      where: {},
+      where: {
+        status: '1', // 查询启用的菜单
+      },
       order: [[ 'orderNum', 'ASC' ]],
     };
 
@@ -22,6 +24,14 @@ class Service extends BaseService {
 
   async findByUser() {
     const roleIds = this.ctx.state.user.roles.map(item => item.id);
+    if (roleIds.includes(1)) {
+      const obj = {
+        where: {},
+        order: [[ 'orderNum', 'ASC' ]],
+      };
+      console.log(1111111111);
+      return await this.ctx.model[this.modelName].findAndCountAll(obj);
+    }
     const menus = await this.ctx.model.RoleMenu.findAll({
       where: {
         roleId: {
