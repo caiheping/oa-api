@@ -13,9 +13,9 @@ class Service extends BaseService {
 
   // 删除
   async destroy(ids) {
+    // 建立事务对象
+    const transaction = await this.ctx.model.transaction();
     try {
-      // 建立事务对象
-      const transaction = await this.ctx.model.transaction();
 
       const dictType = await this.ctx.model[this.modelName].findAll({
         where: {
@@ -47,6 +47,7 @@ class Service extends BaseService {
       await transaction.commit();
       return true;
     } catch (error) {
+      transaction.rollback();
       this.ctx.throw(500, '服务器错误');
     }
   }

@@ -71,5 +71,5 @@ module.exports = app => {
     post: 'system:notice:add',
     put: 'system:notice:update',
     delete: 'system:notice:delete',
-  }), controller[app.config.public].admin.system.notice); // 字典数据路由
+  }), controller[app.config.public].admin.system.notice); // 通告数据路由
 };
