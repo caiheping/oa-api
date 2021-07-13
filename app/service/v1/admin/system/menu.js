@@ -29,7 +29,6 @@ class Service extends BaseService {
         where: {},
         order: [[ 'orderNum', 'ASC' ]],
       };
-      console.log(1111111111);
       return await this.ctx.model[this.modelName].findAndCountAll(obj);
     }
     const menus = await this.ctx.model.RoleMenu.findAll({

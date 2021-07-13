@@ -31,6 +31,8 @@ module.exports = (options, app) => {
           include: [{
             model: ctx.model.Roles,
             as: 'roles',
+          }, {
+            model: ctx.model.Departments,
           }],
         });
         if (user) {

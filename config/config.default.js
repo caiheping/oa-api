@@ -1,6 +1,7 @@
 /* eslint valid-jsdoc: "off" */
 
 'use strict';
+const path = require('path');
 
 /**
  * @param {Egg.EggAppInfo} appInfo app info
@@ -28,6 +29,11 @@ module.exports = appInfo => {
   // file模式上传文件
   config.multipart = {
     mode: 'file',
+  };
+
+  config.static = {
+    prefix: '/',
+    dir: [ path.join(__dirname, '../app/public'), path.join(__dirname, '../www') ],
   };
 
   config.middleware = [
