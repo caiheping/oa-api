@@ -41,8 +41,10 @@ class Service extends BaseService {
           }).deptId;
         } else if (key === 'ids') {
           obj.where.id = {
-            [Op.or]: query[key],
+            [Op.in]: query[key],
           };
+          obj.limit = null;
+          obj.offset = null;
         } else {
           obj.where[key] = {
             // 模糊查询
@@ -51,7 +53,7 @@ class Service extends BaseService {
         }
       }
     }
-
+    console.log(obj, 123456);
     return await this.ctx.model[this.modelName].findAndCountAll(obj);
   }
 

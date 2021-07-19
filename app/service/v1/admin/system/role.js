@@ -25,12 +25,13 @@ class Service extends BaseService {
   }
 
   // 根据角色id查询数据
-  async findAllByRoleId(roleId) {
-    return await this.ctx.model.UserRole.findAll({
+  async findAllByRoleId(query) {
+    const obj = {
       where: {
-        roleId,
+        roleId: query.roleId,
       },
-    });
+    };
+    return await this.ctx.model.UserRole.findAll(obj);
   }
 
   // 新增
