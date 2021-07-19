@@ -29,6 +29,13 @@ class Controller extends BaseController {
       status: ctx.query.status ? ctx.query.status : '',
       deptId: parseInt(ctx.query.deptId),
     };
+    // 角色id查询
+    if (ctx.query.roleId) {
+      const userIds = await service.v1.admin.system.role.findAllByRoleId(ctx.helper.parseInt(ctx.query.roleId));
+      if (userIds.length) {
+        query.ids = userIds.map(item => item.userId);
+      }
+    }
     const result = await service[this.app.config.public].admin[this.modleName][this.serviceName].findList(query);
     ctx.returnBody(result, 100010);
   }

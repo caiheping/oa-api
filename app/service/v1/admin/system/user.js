@@ -39,6 +39,10 @@ class Service extends BaseService {
           obj.where[key] = getDeptWhere(this.ctx, {
             deptId: query.deptId,
           }).deptId;
+        } else if (key === 'ids') {
+          obj.where.id = {
+            [Op.or]: query[key],
+          };
         } else {
           obj.where[key] = {
             // 模糊查询
