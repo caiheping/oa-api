@@ -53,8 +53,12 @@ class Service extends BaseService {
         }
       }
     }
-    console.log(obj, 123456);
     return await this.ctx.model[this.modelName].findAndCountAll(obj);
+  }
+
+  // 查询条数
+  async getCount() {
+    return await this.ctx.model[this.modelName].count();
   }
 
   // 查询某条数据
