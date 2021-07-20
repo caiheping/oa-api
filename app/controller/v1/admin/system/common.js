@@ -14,7 +14,7 @@ class CommonController extends Controller {
     // 验证不通过时，阻止后面的代码执行
     if (!validateResult) return;
     // 从service文件中拿到返回结果
-    if (ctx.session.code.toLowerCase() !== query.captcha.toLowerCase()) {
+    if (!ctx.session.code || ctx.session.code.toLowerCase() !== query.captcha.toLowerCase()) {
       return ctx.throw(500, '验证码错误');
     }
     const result = await service[this.app.config.public].admin.system.common.login(query);

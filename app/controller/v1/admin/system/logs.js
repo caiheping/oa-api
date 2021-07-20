@@ -6,7 +6,7 @@ const BaseController = require('../../base');
 class Controller extends BaseController {
   constructor(...arg) {
     super(...arg);
-    this.serviceName = 'notice';
+    this.serviceName = 'logs';
     this.modleName = 'system';
   }
 
@@ -17,11 +17,17 @@ class Controller extends BaseController {
     const query = {
       limit: ctx.helper.parseInt(ctx.query.pageSize),
       offset: ctx.helper.parseInt(ctx.query.pageNum),
-      noticeTitle: ctx.query.noticeTitle,
-      noticeType: ctx.query.noticeType,
-      status: ctx.query.status,
+      createdBy: ctx.query.createdBy,
+      method: ctx.query.method,
     };
     const result = await service[this.app.config.public].admin[this.modleName][this.serviceName].findList(query);
+    ctx.returnBody(result, 100010);
+  }
+
+  // 清空
+  async deleteAllLogs() {
+    const { ctx, service } = this;
+    const result = await service[this.app.config.public].admin[this.modleName][this.serviceName].deleteAll();
     ctx.returnBody(result, 100010);
   }
 }

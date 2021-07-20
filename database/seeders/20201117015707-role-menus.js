@@ -157,6 +157,50 @@ module.exports = {
         roleId: 1,
         menuId: 36,
       },
+      {
+        roleId: 1,
+        menuId: 37,
+      },
+      {
+        roleId: 1,
+        menuId: 38,
+      },
+      {
+        roleId: 1,
+        menuId: 39,
+      },
+      {
+        roleId: 1,
+        menuId: 40,
+      },
+      {
+        roleId: 1,
+        menuId: 41,
+      },
+      {
+        roleId: 1,
+        menuId: 42,
+      },
+      {
+        roleId: 1,
+        menuId: 43,
+      },
+      {
+        roleId: 1,
+        menuId: 44,
+      },
+      {
+        roleId: 1,
+        menuId: 45,
+      },
+      {
+        roleId: 1,
+        menuId: 46,
+      },
+      {
+        roleId: 1,
+        menuId: 47,
+      },
     ], {});
   },
 

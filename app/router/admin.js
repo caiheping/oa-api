@@ -25,6 +25,9 @@ module.exports = app => {
   router.put(`/api/${app.config.public}/admin/system/role/changeRoleStatus`, app.middleware.auth({
     put: 'system:role:changeRoleStatus',
   }), controller[app.config.public].admin.system.role.changeRoleStatus); // 修改角色状态
+  router.delete(`/api/${app.config.public}/admin/system/logs/deleteAllLogs`, app.middleware.auth({
+    delete: 'system:logs:deleteAllLogs',
+  }), controller[app.config.public].admin.system.logs.deleteAllLogs); // 清空所有日志
 
 
   /**
@@ -72,4 +75,10 @@ module.exports = app => {
     put: 'system:notice:update',
     delete: 'system:notice:delete',
   }), controller[app.config.public].admin.system.notice); // 通告数据路由
+  router.resources('logs', `/api/${app.config.public}/admin/system/logs`, app.middleware.auth({
+    get: 'system:logs:list',
+    post: 'system:logs:add',
+    put: 'system:logs:update',
+    delete: 'system:logs:delete',
+  }), controller[app.config.public].admin.system.logs); // 系统日志路由
 };

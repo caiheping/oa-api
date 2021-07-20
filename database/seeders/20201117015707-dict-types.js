@@ -36,6 +36,22 @@ module.exports = {
         createdAt: new Date(),
         createdBy: 'admin',
       },
+      {
+        dictName: '消息类型',
+        dictType: 'sys_notice_type',
+        status: '1',
+        remark: '消息类型',
+        createdAt: new Date(),
+        createdBy: 'admin',
+      },
+      {
+        dictName: '请求方式',
+        dictType: 'sys_method_type',
+        status: '1',
+        remark: '请求方式',
+        createdAt: new Date(),
+        createdBy: 'admin',
+      },
     ], {});
   },
 

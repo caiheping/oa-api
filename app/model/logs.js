@@ -1,44 +1,31 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE, TEXT } = app.Sequelize;
+  const { STRING, INTEGER, DATE } = app.Sequelize;
 
-  const Articles = app.model.define('articles', {
+  const Logs = app.model.define('logs', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: INTEGER,
     },
-    userId: {
-      allowNull: false,
-      type: INTEGER,
-      comment: '用户id',
-    },
-    title: {
-      allowNull: false,
+    method: {
       type: STRING,
-      comment: '标题',
+      comment: '请求方式',
     },
-    subTitle: {
-      allowNull: false,
+    url: {
       type: STRING,
-      comment: '副标题',
+      comment: '地址',
     },
-    type: {
-      allowNull: false,
+    ip: {
       type: STRING,
-      comment: '类型',
+      defaultValue: null,
+      comment: 'ip',
     },
-    hot: {
-      type: INTEGER,
-      defaultValue: 0,
-      comment: '热度',
-    },
-    content: {
-      allowNull: false,
-      type: TEXT,
-      comment: '内容',
+    data: {
+      type: STRING,
+      comment: '请求参数',
     },
     createdAt: {
       allowNull: true,
@@ -62,5 +49,5 @@ module.exports = app => {
     },
   });
 
-  return Articles;
+  return Logs;
 };

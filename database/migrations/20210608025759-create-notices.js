@@ -17,7 +17,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
         defaultValue: '1',
-        comment: '公告类型（1通知 2公告）',
+        comment: '公告类型（1消息 2公告）',
       },
       noticeContent: {
         allowNull: false,
@@ -28,10 +28,6 @@ module.exports = {
         type: Sequelize.STRING,
         defaultValue: '1',
         comment: '公告状态（1正常 0停用）',
-      },
-      remark: {
-        type: Sequelize.STRING,
-        comment: '备注',
       },
       createdAt: {
         allowNull: true,

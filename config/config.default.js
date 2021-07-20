@@ -40,6 +40,7 @@ module.exports = appInfo => {
     'gzip',
     'errorHandler', // 全局错误处理
     'jwt',
+    'httplog',
   ];
 
   config.gzip = {
