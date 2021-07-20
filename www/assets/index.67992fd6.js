@@ -1,0 +1,1 @@
+import{e as r}from"./index.b4c50d36.js";import{d as e,u as a,l as t,m as n}from"./ant-design-vue.10f2c163.js";var s=e({name:"Redirect",setup(){const{currentRoute:e,replace:t}=r(),{params:n,query:s}=a(e),{path:u}=n;return t({path:"/"+(Array.isArray(u)?u.join("/"):u),query:s}),{}}});s.render=function(r,e,a,s,u,i){return t(),n("div")};export default s;
