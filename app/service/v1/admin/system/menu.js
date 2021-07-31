@@ -53,7 +53,9 @@ class Service extends BaseService {
 
   // 新增
   async create(query) {
-    query.name = query.component; // name 和 component 一样
+    // query.name = query.component; // name 和 component 一样
+    const componentName = query.path.replace(/^\//, '');
+    query.name = componentName.charAt(0).toUpperCase() + componentName.slice(1);
     try {
       return await this.ctx.model[this.modelName].create(query);
     } catch (error) {
