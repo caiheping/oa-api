@@ -17,6 +17,9 @@ class Service extends BaseService {
     const obj = {
       where: {},
       order,
+      attributes: {
+        exclude: [ 'password' ],
+      },
       include: [{
         model: this.ctx.model.Departments,
       }, {
@@ -66,6 +69,9 @@ class Service extends BaseService {
     return await this.ctx.model[this.modelName].findOne({
       where: {
         id,
+      },
+      attributes: {
+        exclude: [ 'password' ],
       },
       include: [{
         model: this.ctx.model.Roles,

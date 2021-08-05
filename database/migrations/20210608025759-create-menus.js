@@ -68,7 +68,7 @@ module.exports = {
       },
       icon: {
         type: STRING,
-        defaultValue: '#',
+        defaultValue: '',
         comment: '图标',
       },
       isDelete: {
