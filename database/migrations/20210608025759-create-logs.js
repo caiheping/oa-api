@@ -28,6 +28,10 @@ module.exports = {
         type: STRING,
         comment: '请求参数',
       },
+      status: {
+        type: INTEGER,
+        comment: 'http状态码',
+      },
       createdAt: {
         allowNull: true,
         type: DATE,
