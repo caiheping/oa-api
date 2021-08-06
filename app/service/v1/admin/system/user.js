@@ -70,9 +70,6 @@ class Service extends BaseService {
       where: {
         id,
       },
-      attributes: {
-        exclude: [ 'password' ],
-      },
       include: [{
         model: this.ctx.model.Roles,
         as: 'roles',
