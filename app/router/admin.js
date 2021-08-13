@@ -81,4 +81,14 @@ module.exports = app => {
     put: 'system:logs:update',
     delete: 'system:logs:delete',
   }), controller[app.config.public].admin.system.logs); // 系统日志路由
+
+  /**
+   * 基础数据
+   */
+  router.resources('clockIn', `/api/${app.config.public}/admin/baseInfo/clockIn`, app.middleware.auth({
+    get: 'baseInfo:clockIn:list',
+    post: 'baseInfo:clockIn:add',
+    put: 'baseInfo:clockIn:update',
+    delete: 'baseInfo:clockIn:delete',
+  }), controller[app.config.public].admin.baseInfo.clockIn); // 通告数据路由
 };
