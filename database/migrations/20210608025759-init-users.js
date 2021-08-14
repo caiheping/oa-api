@@ -53,32 +53,6 @@ module.exports = {
         type: STRING,
         comment: '手机号',
       },
-      salary: {
-        type: INTEGER,
-        allowNull: true,
-        comment: '薪资',
-      },
-      entryTime: {
-        type: DATE,
-        allowNull: true,
-        comment: '入职时间',
-      },
-      birthday: {
-        type: DATE,
-        allowNull: true,
-        comment: '出生日期',
-      },
-      education: {
-        allowNull: true,
-        type: STRING,
-        comment: '学历',
-      },
-      position: {
-        allowNull: true,
-        type: STRING,
-        defaultValue: '1', // 1 代表员工， 10 代表主管
-        comment: '岗位（主管，员工）',
-      },
       isDelete: {
         type: STRING,
         defaultValue: '0',
