@@ -10,9 +10,10 @@ class Service extends BaseService {
   }
 
   // 查询某条数据
-  async findByType(query) {
+  async findByType(query, order = [[ 'createdAt', 'DESC' ]]) {
     return await this.ctx.model[this.modelName].findAll({
       where: query,
+      order,
     });
   }
 }

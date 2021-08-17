@@ -38,7 +38,7 @@ class Controller extends BaseController {
     const query = {
       dictType: ctx.params.dictType,
     };
-    const result = ctx.body = await service[this.app.config.public].admin[this.modleName][this.serviceName].findByType(query);
+    const result = ctx.body = await service[this.app.config.public].admin[this.modleName][this.serviceName].findByType(query, [[ 'dictSort', 'ASC' ]]);
     ctx.returnBody(result, 100010);
   }
 }
