@@ -8,7 +8,7 @@ const Op = Sequelize.Op;
 class Service extends BaseService {
   constructor(...arg) {
     super(...arg);
-    this.modelName = 'ClockIn';
+    this.modelName = 'MakeUpCard';
   }
 
   // 查询, 传页码，分页返回，否则全部返回
@@ -20,6 +20,8 @@ class Service extends BaseService {
       include: [{
         model: this.ctx.model.Users,
         as: 'user',
+      }, {
+        model: this.ctx.model.ClockIn,
       }],
     };
     if (query.offset) {

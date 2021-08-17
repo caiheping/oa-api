@@ -90,5 +90,36 @@ module.exports = app => {
     post: 'baseInfo:clockIn:add',
     put: 'baseInfo:clockIn:update',
     delete: 'baseInfo:clockIn:delete',
-  }), controller[app.config.public].admin.baseInfo.clockIn); // 通告数据路由
+  }), controller[app.config.public].admin.baseInfo.clockIn);
+
+  /**
+   * 审批管理
+   */
+  router.resources('leave', `/api/${app.config.public}/admin/examineAndApprove/leave`, app.middleware.auth({
+    get: 'examineAndApprove:leave:list',
+    post: 'examineAndApprove:leave:add',
+    put: 'examineAndApprove:leave:update',
+    delete: 'examineAndApprove:leave:delete',
+  }), controller[app.config.public].admin.examineAndApprove.leave);
+
+  router.resources('workOverTime', `/api/${app.config.public}/admin/examineAndApprove/workOverTime`, app.middleware.auth({
+    get: 'examineAndApprove:workOverTime:list',
+    post: 'examineAndApprove:workOverTime:add',
+    put: 'examineAndApprove:workOverTime:update',
+    delete: 'examineAndApprove:workOverTime:delete',
+  }), controller[app.config.public].admin.examineAndApprove.workOverTime);
+
+  router.resources('evection', `/api/${app.config.public}/admin/examineAndApprove/evection`, app.middleware.auth({
+    get: 'examineAndApprove:evection:list',
+    post: 'examineAndApprove:evection:add',
+    put: 'examineAndApprove:evection:update',
+    delete: 'examineAndApprove:evection:delete',
+  }), controller[app.config.public].admin.examineAndApprove.evection);
+
+  router.resources('makeUpCard', `/api/${app.config.public}/admin/examineAndApprove/makeUpCard`, app.middleware.auth({
+    get: 'examineAndApprove:makeUpCard:list',
+    post: 'examineAndApprove:makeUpCard:add',
+    put: 'examineAndApprove:makeUpCard:update',
+    delete: 'examineAndApprove:makeUpCard:delete',
+  }), controller[app.config.public].admin.examineAndApprove.makeUpCard);
 };
