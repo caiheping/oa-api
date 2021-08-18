@@ -22,7 +22,6 @@ module.exports = app => {
       comment: '类型（1公司打卡 2外出打卡）',
     },
     wifi: {
-      allowNull: false,
       type: STRING,
       comment: '打卡WiFi',
     },

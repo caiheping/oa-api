@@ -20,7 +20,6 @@ module.exports = {
         comment: '类型（1公司打卡 2外出打卡）',
       },
       wifi: {
-        allowNull: false,
         type: Sequelize.STRING,
         comment: '打卡WiFi',
       },
