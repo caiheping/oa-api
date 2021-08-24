@@ -6,7 +6,6 @@ class BaseController extends Controller {
   // 查询
   async index() {
     const { ctx, service } = this;
-    console.log(9999999999);
     // 查询参数
     const query = {
       limit: ctx.helper.parseInt(ctx.query.pageSize),
