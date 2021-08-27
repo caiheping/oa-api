@@ -26,6 +26,7 @@
     "egg-mock": "^3.21.0",
     "eslint": "^5.13.0",
     "eslint-config-egg": "^7.1.0",
+    "husky": "^4.3.8",
     "sequelize-cli": "^6.2.0"
   },
   "engines": {
@@ -42,6 +43,11 @@
     "lint": "eslint . --fix",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "ci": {
     "version": "10"
