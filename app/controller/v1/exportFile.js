@@ -15,18 +15,22 @@ class ExportController extends Controller {
       },
       {
         name: 'url',
+        width: 50,
       },
       {
         name: 'data',
+        width: 50,
       },
       {
         name: 'status',
       },
       {
         name: 'createdAt',
+        width: 30,
       },
       {
         name: 'createdBy',
+        width: 30,
       },
     ];
     const rows = [];

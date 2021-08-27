@@ -29,11 +29,23 @@ class CommonService extends Service {
     if (data && data.length) {
       for (let i = 0; i < data.length; i++) {
         if (data[i].sheet && data[i].columns && data[i].rows) {
-          wb.addWorksheet(data[i].sheet).addTable({
+          const ws = wb.addWorksheet(data[i].sheet);
+          ws.addTable({
+            name: data[i].sheet,
             ref: 'A1',
+            style: {
+              showRowStripes: true,
+            },
             columns: data[i].columns,
             rows: data[i].rows,
           });
+          for (let j = 0; j < data[i].columns.length; j++) {
+            ws.getColumn(j + 1).alignment = { wrapText: true, indent: 1, vertical: 'middle', horizontal: 'center' };
+            Object.keys(data[i].columns[j]).forEach(key => {
+              ws.getColumn(j + 1)[key] = data[i].columns[j][key];
+            });
+          }
+          ws.getRow(1).font = { name: 'Arial', size: 12, bold: true };
         }
       }
     } else {
