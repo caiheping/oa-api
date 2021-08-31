@@ -2,46 +2,30 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const { INTEGER, DATE, STRING } = Sequelize;
-    await queryInterface.createTable('leaves', {
+    await queryInterface.createTable('system_configs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: INTEGER,
       },
-      userId: {
-        allowNull: false,
-        type: INTEGER,
-        comment: '用户id',
-      },
-      type: {
+      name: {
         allowNull: false,
         type: STRING,
-        comment: '请假类型',
+        comment: '参数名称',
       },
-      leaveDuration: {
-        type: INTEGER,
-        comment: '请假时长',
-      },
-      leaveReason: {
+      keyName: {
+        allowNull: false,
         type: STRING,
-        comment: '请假原因',
+        comment: '参数键名',
       },
-      status: {
+      key: {
+        allowNull: false,
         type: STRING,
-        defaultValue: '0',
-        comment: '状态',
-      },
-      startTime: {
-        type: DATE,
-        comment: '开始时间',
-      },
-      endTime: {
-        type: DATE,
-        comment: '结束时间',
+        comment: '参数键值',
       },
       remark: {
-        type: INTEGER,
+        type: STRING,
         comment: '备注',
       },
       createdAt: {
@@ -67,6 +51,6 @@ module.exports = {
     });
   },
   down: async queryInterface => {
-    await queryInterface.dropTable('leaves');
+    await queryInterface.dropTable('system_configs');
   },
 };

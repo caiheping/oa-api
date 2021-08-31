@@ -75,6 +75,12 @@ module.exports = app => {
     put: 'system:notice:update',
     delete: 'system:notice:delete',
   }), controller[app.config.public].admin.system.notice); // 通告数据路由
+  router.resources('systemConfig', `/api/${app.config.public}/admin/system/systemConfig`, app.middleware.auth({
+    get: 'system:systemConfig:list',
+    post: 'system:systemConfig:add',
+    put: 'system:systemConfig:update',
+    delete: 'system:systemConfig:delete',
+  }), controller[app.config.public].admin.system.systemConfig); // 系统配置路由
   router.resources('logs', `/api/${app.config.public}/admin/system/logs`, app.middleware.auth({
     get: 'system:logs:list',
     post: 'system:logs:add',
