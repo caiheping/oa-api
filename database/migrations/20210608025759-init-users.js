@@ -89,6 +89,16 @@ module.exports = {
         defaultValue: '1',
         comment: '帐号状态（1正常 0停用）',
       },
+      compensatoryLeave: {
+        type: INTEGER,
+        defaultValue: 0,
+        comment: '调休假',
+      },
+      annualLeave: {
+        type: INTEGER,
+        defaultValue: 0,
+        comment: '年假',
+      },
       remark: {
         type: STRING,
         comment: '备注',
