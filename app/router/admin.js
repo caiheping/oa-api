@@ -106,26 +106,26 @@ module.exports = app => {
     post: 'examineAndApprove:leave:add',
     put: 'examineAndApprove:leave:update',
     delete: 'examineAndApprove:leave:delete',
-  }), controller[app.config.public].admin.examineAndApprove.leave);
+  }), controller[app.config.public].admin.examineAndApprove.leave); // 请假
 
   router.resources('workOverTime', `/api/${app.config.public}/admin/examineAndApprove/workOverTime`, app.middleware.auth({
     get: 'examineAndApprove:workOverTime:list',
     post: 'examineAndApprove:workOverTime:add',
     put: 'examineAndApprove:workOverTime:update',
     delete: 'examineAndApprove:workOverTime:delete',
-  }), controller[app.config.public].admin.examineAndApprove.workOverTime);
+  }), controller[app.config.public].admin.examineAndApprove.workOverTime);// 加班
 
   router.resources('evection', `/api/${app.config.public}/admin/examineAndApprove/evection`, app.middleware.auth({
     get: 'examineAndApprove:evection:list',
     post: 'examineAndApprove:evection:add',
     put: 'examineAndApprove:evection:update',
     delete: 'examineAndApprove:evection:delete',
-  }), controller[app.config.public].admin.examineAndApprove.evection);
+  }), controller[app.config.public].admin.examineAndApprove.evection);// 出差
 
   router.resources('makeUpCard', `/api/${app.config.public}/admin/examineAndApprove/makeUpCard`, app.middleware.auth({
     get: 'examineAndApprove:makeUpCard:list',
     post: 'examineAndApprove:makeUpCard:add',
     put: 'examineAndApprove:makeUpCard:update',
     delete: 'examineAndApprove:makeUpCard:delete',
-  }), controller[app.config.public].admin.examineAndApprove.makeUpCard);
+  }), controller[app.config.public].admin.examineAndApprove.makeUpCard);// 补卡
 };
