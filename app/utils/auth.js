@@ -38,7 +38,7 @@ function getDeptWhere(ctx, where = {}) {
     where.deptId = {
       [Op.or]: [ ctx.state.user.deptId ],
     };
-    where.id = ctx.state.user.id;
+    where.userId = ctx.state.user.id;
   }
   return where;
 }

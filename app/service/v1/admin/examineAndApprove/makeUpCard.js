@@ -2,6 +2,7 @@
 
 const BaseService = require('../../base');
 const Sequelize = require('sequelize');
+const { getDeptWhere } = require('../../../../utils/auth');
 const Op = Sequelize.Op;
 
 
@@ -48,6 +49,9 @@ class Service extends BaseService {
         };
       }
     }
+    obj.where = Object.assign({}, obj.where, getDeptWhere(this.ctx, {
+      deptId: query.deptId,
+    }));
     return await this.ctx.model[this.modelName].findAndCountAll(obj);
   }
 }

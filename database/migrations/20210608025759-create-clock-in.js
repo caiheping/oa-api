@@ -14,15 +14,20 @@ module.exports = {
         type: INTEGER,
         comment: '用户id',
       },
+      deptId: {
+        allowNull: false,
+        type: INTEGER,
+        comment: '部门id',
+      },
       type: {
         allowNull: false,
         type: STRING,
         defaultValue: '1',
         comment: '类型（1公司打卡 2外出打卡）',
       },
-      wifi: {
+      wifiBefore: {
         type: STRING,
-        comment: '打卡WiFi',
+        comment: '上班打卡WiFi',
       },
       firstClockInAddr: {
         type: STRING,
@@ -31,6 +36,10 @@ module.exports = {
       firstClockInTime: {
         type: DATE,
         comment: '上班打卡时间',
+      },
+      wifiNext: {
+        type: STRING,
+        comment: '下班打卡WiFi',
       },
       lastClockInAddr: {
         type: STRING,

@@ -14,6 +14,11 @@ module.exports = {
         type: INTEGER,
         comment: '用户id',
       },
+      deptId: {
+        allowNull: false,
+        type: INTEGER,
+        comment: '部门id',
+      },
       type: {
         allowNull: false,
         type: STRING,

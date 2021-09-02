@@ -44,6 +44,7 @@ class Controller extends BaseController {
     query.createdAt = new Date();
     query.createdBy = ctx.state.user.userName;
     query.userId = ctx.state.user.id;
+    query.deptId = ctx.state.user.deptId;
     const result = await service[this.app.config.public].admin[this.modleName][this.serviceName].create(query);
     if (result) {
       ctx.returnBody(null, 100020);
@@ -61,6 +62,7 @@ class Controller extends BaseController {
     query.updatedAt = new Date();
     query.updatedBy = ctx.state.user.userName;
     query.userId = ctx.state.user.id;
+    query.deptId = ctx.state.user.deptId;
     const id = this.ctx.helper.parseInt(ctx.params.id);
     const result = await service[this.app.config.public].admin[this.modleName][this.serviceName].update(query, {
       id,

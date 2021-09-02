@@ -15,6 +15,11 @@ module.exports = app => {
       type: INTEGER,
       comment: '用户id',
     },
+    deptId: {
+      allowNull: false,
+      type: INTEGER,
+      comment: '部门id',
+    },
     clockInId: {
       allowNull: false,
       type: INTEGER,

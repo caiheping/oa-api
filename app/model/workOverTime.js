@@ -15,6 +15,11 @@ module.exports = app => {
       type: INTEGER,
       comment: '用户id',
     },
+    deptId: {
+      allowNull: false,
+      type: INTEGER,
+      comment: '部门id',
+    },
     workOverTimeDuration: {
       type: INTEGER,
       comment: '加班时长',
