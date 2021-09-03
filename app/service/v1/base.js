@@ -40,6 +40,7 @@ class BaseService extends Service {
 
   // 新增
   async create(query) {
+    console.log(query);
     return await this.ctx.model[this.modelName].create(query);
   }
 

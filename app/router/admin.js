@@ -96,7 +96,14 @@ module.exports = app => {
     post: 'baseInfo:clockIn:add',
     put: 'baseInfo:clockIn:update',
     delete: 'baseInfo:clockIn:delete',
-  }), controller[app.config.public].admin.baseInfo.clockIn);
+  }), controller[app.config.public].admin.baseInfo.clockIn); // 打卡
+
+  router.resources('workingDaySettings', `/api/${app.config.public}/admin/baseInfo/workingDaySettings`, app.middleware.auth({
+    get: 'baseInfo:workingDaySettings:list',
+    post: 'baseInfo:workingDaySettings:add',
+    put: 'baseInfo:workingDaySettings:update',
+    delete: 'baseInfo:workingDaySettings:delete',
+  }), controller[app.config.public].admin.baseInfo.workingDaySettings); // 工作日
 
   /**
    * 审批管理
@@ -113,19 +120,19 @@ module.exports = app => {
     post: 'examineAndApprove:workOverTime:add',
     put: 'examineAndApprove:workOverTime:update',
     delete: 'examineAndApprove:workOverTime:delete',
-  }), controller[app.config.public].admin.examineAndApprove.workOverTime);// 加班
+  }), controller[app.config.public].admin.examineAndApprove.workOverTime); // 加班
 
   router.resources('evection', `/api/${app.config.public}/admin/examineAndApprove/evection`, app.middleware.auth({
     get: 'examineAndApprove:evection:list',
     post: 'examineAndApprove:evection:add',
     put: 'examineAndApprove:evection:update',
     delete: 'examineAndApprove:evection:delete',
-  }), controller[app.config.public].admin.examineAndApprove.evection);// 出差
+  }), controller[app.config.public].admin.examineAndApprove.evection); // 出差
 
   router.resources('makeUpCard', `/api/${app.config.public}/admin/examineAndApprove/makeUpCard`, app.middleware.auth({
     get: 'examineAndApprove:makeUpCard:list',
     post: 'examineAndApprove:makeUpCard:add',
     put: 'examineAndApprove:makeUpCard:update',
     delete: 'examineAndApprove:makeUpCard:delete',
-  }), controller[app.config.public].admin.examineAndApprove.makeUpCard);// 补卡
+  }), controller[app.config.public].admin.examineAndApprove.makeUpCard); // 补卡
 };
