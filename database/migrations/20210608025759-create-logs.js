@@ -3,7 +3,7 @@
 module.exports = {
   // 在执行数据库升级时调用的函数，创建 users 表
   up: async (queryInterface, Sequelize) => {
-    const { INTEGER, DATE, STRING } = Sequelize;
+    const { INTEGER, DATE, STRING, TEXT } = Sequelize;
     await queryInterface.createTable('logs', {
       id: {
         allowNull: false,
@@ -25,7 +25,7 @@ module.exports = {
         comment: 'ip',
       },
       data: {
-        type: STRING,
+        type: TEXT,
         comment: '请求参数',
       },
       status: {

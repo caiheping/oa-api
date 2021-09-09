@@ -135,4 +135,17 @@ module.exports = app => {
     put: 'examineAndApprove:makeUpCard:update',
     delete: 'examineAndApprove:makeUpCard:delete',
   }), controller[app.config.public].admin.examineAndApprove.makeUpCard); // 补卡
+
+  /**
+   * 财务管理
+   */
+  router.resources('salary', `/api/${app.config.public}/admin/finance/salary`, app.middleware.auth({
+    get: 'finance:salary:list',
+    post: 'finance:salary:add',
+    put: 'finance:salary:update',
+    delete: 'finance:salary:delete',
+  }), controller[app.config.public].admin.finance.salary); // 工资详情
+  router.post(`/api/${app.config.public}/admin/finance/salary/createEmployeeSalary`, app.middleware.auth({
+    delete: 'finance:salary:createEmployeeSalary',
+  }), controller[app.config.public].admin.finance.salary.createEmployeeSalary); // 生成员工工资
 };

@@ -56,8 +56,32 @@ function handleTree(data, id = 'id', parentId = 'parentId', children = 'children
   };
 }
 
+// 传入年月 返回日期第一天和最后一天
+function getFirstAndLastMonthDay(dateStr, t = '-') {
+  const year = dateStr.split(t)[0];
+  const month = dateStr.split(t)[1];
+  const firstdate = year + '-' + month + '-01';
+  const day = new Date(year, month, 0);
+  const lastdate = year + '-' + month + '-' + day.getDate();
+  return [ firstdate, lastdate ];
+}
+
+// 传入年月 返回日期第一天和最后一天
+function getFirstAndLastDay(dateStr, t = '-') {
+  dateStr = dateStr.split(' ')[0];
+  const year = dateStr.split(t)[0];
+  const month = dateStr.split(t)[1];
+  const day = dateStr.split(t)[2];
+  const firstdate = year + t + month + t + day + ' 00:00:00';
+  const lastdate = year + t + month + t + day + ' 23:59:59';
+  console.log([ firstdate, lastdate ]);
+  return [ firstdate, lastdate ];
+}
+
 module.exports = {
   checkWhiteList,
   handleTree,
   mkdirsSync,
+  getFirstAndLastMonthDay,
+  getFirstAndLastDay,
 };

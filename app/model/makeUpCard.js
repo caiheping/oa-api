@@ -20,11 +20,6 @@ module.exports = app => {
       type: INTEGER,
       comment: '部门id',
     },
-    clockInId: {
-      allowNull: false,
-      type: INTEGER,
-      comment: '打卡id',
-    },
     type: {
       allowNull: false,
       type: STRING,
@@ -68,9 +63,6 @@ module.exports = app => {
   makeUpCard.associate = function() {
     makeUpCard.belongsTo(app.model.Users, {
       foreignKey: 'userId',
-    });
-    makeUpCard.belongsTo(app.model.ClockIn, {
-      foreignKey: 'clockInId',
     });
   };
   return makeUpCard;

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE } = app.Sequelize;
+  const { STRING, INTEGER, DATE, TEXT } = app.Sequelize;
 
   const Logs = app.model.define('logs', {
     id: {
@@ -24,7 +24,7 @@ module.exports = app => {
       comment: 'ip',
     },
     data: {
-      type: STRING,
+      type: TEXT,
       comment: '请求参数',
     },
     status: {

@@ -9,7 +9,7 @@ const Op = Sequelize.Op;
 class Service extends BaseService {
   constructor(...arg) {
     super(...arg);
-    this.modelName = 'WorkingDaySettings';
+    this.modelName = 'Salary';
   }
 
   // 查询
@@ -17,6 +17,10 @@ class Service extends BaseService {
     const obj = {
       where: {},
       order,
+      include: [{
+        model: this.ctx.model.Users,
+        as: 'user',
+      }],
     };
     if (query.offset) {
       query.limit = query.limit ? query.limit : 10;
@@ -32,7 +36,7 @@ class Service extends BaseService {
         if (!query[key]) {
           query[key] = '';
         }
-        if (key === 'day' && query[key]) {
+        if (key === 'yearAndMounth' && query[key]) {
           obj.where[key] = {
             [Op.between]: getFirstAndLastMonthDay(query[key]),
           };
@@ -41,6 +45,11 @@ class Service extends BaseService {
             [Op.like]: '%' + query[key] + '%',
           };
         }
+      }
+      if (key === 'userId') {
+        obj.where[key] = {
+          [Op.or]: query[key].length ? query[key] : [ -1 ],
+        };
       }
     }
     return await this.ctx.model[this.modelName].findAndCountAll(obj);

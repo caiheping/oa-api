@@ -61,8 +61,6 @@ class Controller extends BaseController {
     const query = ctx.request.body;
     query.updatedAt = new Date();
     query.updatedBy = ctx.state.user.userName;
-    query.userId = ctx.state.user.id;
-    query.deptId = ctx.state.user.deptId;
     const id = this.ctx.helper.parseInt(ctx.params.id);
     const result = await service[this.app.config.public].admin[this.modleName][this.serviceName].update(query, {
       id,

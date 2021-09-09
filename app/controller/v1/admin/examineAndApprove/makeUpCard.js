@@ -2,6 +2,7 @@
 
 const BaseController = require('../../base');
 const Sequelize = require('sequelize');
+const { getFirstAndLastDay } = require('../../../../utils/tools');
 const Op = Sequelize.Op;
 
 
@@ -40,7 +41,7 @@ class Controller extends BaseController {
     const validateResult = await ctx.checkValidate(ctx.request.body, this.serviceName + '.create');
     if (!validateResult) return;
     const query = ctx.request.body;
-    query.createdAt = new Date();
+    query.createdAt = query.createdAt || new Date();
     query.createdBy = ctx.state.user.userName;
     query.userId = ctx.state.user.id;
     query.deptId = ctx.state.user.deptId;
@@ -60,13 +61,47 @@ class Controller extends BaseController {
     const query = ctx.request.body;
     query.updatedAt = new Date();
     query.updatedBy = ctx.state.user.userName;
-    query.userId = ctx.state.user.id;
-    query.deptId = ctx.state.user.deptId;
     const id = this.ctx.helper.parseInt(ctx.params.id);
     const result = await service[this.app.config.public].admin[this.modleName][this.serviceName].update(query, {
       id,
     });
     if (result) {
+      if (query.status === '2') {
+        const clockInQuery = {};
+        if (query.type === '1') { // 上班打卡
+          clockInQuery.firstClockInTime = query.createdAt.split(' ')[0] + ' 09:00:00';
+        } else { // 下班打卡
+          clockInQuery.lastClockInTime = query.createdAt.split(' ')[0] + ' 18:00:00';
+        }
+        const clockInLists = await this.ctx.model.ClockIn.findOne({
+          where: {
+            createdAt: {
+              [Op.between]: getFirstAndLastDay(query.createdAt),
+            },
+          },
+        });
+        if (clockInLists) { // 有历史数据，修改
+          await this.ctx.model.ClockIn.update(clockInQuery, {
+            where: {
+              createdAt: {
+                [Op.between]: getFirstAndLastDay(query.createdAt),
+              },
+            },
+          });
+        } else { // 没有历史数据，新增
+          clockInQuery.userId = query.userId;
+          clockInQuery.deptId = query.deptId;
+          clockInQuery.createdAt = query.createdAt;
+          clockInQuery.type = 1;
+          await this.ctx.model.ClockIn.create(clockInQuery, {
+            where: {
+              createdAt: {
+                [Op.between]: getFirstAndLastDay(query.createdAt),
+              },
+            },
+          });
+        }
+      }
       ctx.returnBody(null, 100030);
     } else {
       ctx.returnBody(null, 100031, 500);

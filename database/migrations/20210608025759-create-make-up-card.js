@@ -19,11 +19,6 @@ module.exports = {
         type: INTEGER,
         comment: '部门id',
       },
-      clockInId: {
-        allowNull: false,
-        type: INTEGER,
-        comment: '打卡id',
-      },
       type: {
         type: STRING,
         comment: '类型（上午/下午）',
