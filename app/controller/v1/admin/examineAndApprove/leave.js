@@ -1,6 +1,7 @@
 'use strict';
 
 const BaseController = require('../../base');
+const moment = require('moment');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
@@ -45,6 +46,9 @@ class Controller extends BaseController {
     query.createdBy = ctx.state.user.userName;
     query.userId = ctx.state.user.id;
     query.deptId = ctx.state.user.deptId;
+    const seconds = moment(query.endTime) - moment(query.startTime);
+    query.leaveDuration = Math.floor(seconds / 3600000);
+    console.log(query.leaveDuration);
     const result = await service[this.app.config.public].admin[this.modleName][this.serviceName].create(query);
     if (result) {
       ctx.returnBody(null, 100020);
@@ -61,6 +65,8 @@ class Controller extends BaseController {
     const query = ctx.request.body;
     query.updatedAt = new Date();
     query.updatedBy = ctx.state.user.userName;
+    const seconds = moment(query.endTime) - moment(query.startTime);
+    query.leaveDuration = Math.floor(seconds / 3600000);
     const id = this.ctx.helper.parseInt(ctx.params.id);
     const result = await service[this.app.config.public].admin[this.modleName][this.serviceName].update(query, {
       id,

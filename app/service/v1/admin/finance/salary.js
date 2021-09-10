@@ -54,6 +54,12 @@ class Service extends BaseService {
     }
     return await this.ctx.model[this.modelName].findAndCountAll(obj);
   }
+
+  // 批量新增
+  async createMore(dataLists) {
+    console.log(dataLists, 44444456465);
+    return await this.ctx.model[this.modelName].bulkCreate(dataLists);
+  }
 }
 
 module.exports = Service;

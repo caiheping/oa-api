@@ -63,7 +63,7 @@ function getFirstAndLastMonthDay(dateStr, t = '-') {
   const firstdate = year + '-' + month + '-01';
   const day = new Date(year, month, 0);
   const lastdate = year + '-' + month + '-' + day.getDate();
-  return [ firstdate, lastdate ];
+  return [ firstdate + ' 00:00:00', lastdate + ' 23:59:59' ];
 }
 
 // 传入年月 返回日期第一天和最后一天
