@@ -71,8 +71,7 @@ class Controller extends BaseController {
   // 一键生成员工工资
   async createEmployeeSalary() {
     const { ctx, service } = this;
-    console.log(service);
-    const validateResult = await ctx.checkValidate(ctx.request.body, this.serviceName + '.create');
+    const validateResult = await ctx.checkValidate(ctx.request.body, this.serviceName + '.createAll');
     if (!validateResult) return;
     const salaryLists = [];
     const query = ctx.request.body;
@@ -156,7 +155,6 @@ class Controller extends BaseController {
       obj.total = Number(item.salary) - (obj.expectedAttendanceHours - obj.attendanceHours + obj.unpaidLeave) * (item.salary / obj.expectedAttendanceHours) + obj.subsidy - obj.socialSecurityAndProvidentFund + obj.other;
       salaryLists.push(obj);
     });
-    console.log(salaryLists, query.dateLists.length, 1111);
     const result = await service[this.app.config.public].admin[this.modleName][this.serviceName].createMore(salaryLists);
     if (result) {
       ctx.returnBody(null, 100020);

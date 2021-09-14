@@ -27,6 +27,15 @@ function mkdirsSync(dirname) {
 
 }
 
+// 递归
+function recursion(arr = [], item, obj) {
+  if (item.parentId !== 0) {
+    arr.push(item.parentId);
+    return recursion(arr, obj[item.parentId], obj);
+  }
+  return arr;
+}
+
 /**
  * @param data 数据源
  * @param id字段 默认 'id'
@@ -40,11 +49,19 @@ function handleTree(data, id = 'id', parentId = 'parentId', children = 'children
   const obj = {};
   data.forEach(item => {
     item[children] = [];
+    item.origin = [ item[id] ]; // 父id列表, 类似[3, 2, 1]
     obj[item[id]] = item;
   });
   const tree = [];
   data.forEach(list => {
     if (list[parentId] !== rootId) {
+      // list.origin.push(obj[list.parentId].id);
+      // obj[list.parentId].origin
+      //   .filter(data => !list.origin.includes(data))
+      //   .forEach(item => {
+      //     list.origin.push(item);
+      //   });
+      recursion(list.origin, list, obj);
       obj[list[parentId]][children].push(list);
     } else {
       tree.push(list);
@@ -55,6 +72,25 @@ function handleTree(data, id = 'id', parentId = 'parentId', children = 'children
     obj,
   };
 }
+// function handleTree(data, id = 'id', parentId = 'parentId', children = 'children', rootId = 0) {
+//   const obj = {};
+//   data.forEach(item => {
+//     item[children] = [];
+//     obj[item[id]] = item;
+//   });
+//   const tree = [];
+//   data.forEach(list => {
+//     if (list[parentId] !== rootId) {
+//       obj[list[parentId]][children].push(list);
+//     } else {
+//       tree.push(list);
+//     }
+//   });
+//   return {
+//     tree,
+//     obj,
+//   };
+// }
 
 // 传入年月 返回日期第一天和最后一天
 function getFirstAndLastMonthDay(dateStr, t = '-') {

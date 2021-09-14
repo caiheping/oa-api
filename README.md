@@ -14,7 +14,7 @@ oa-api 为前后端分离的企业员工管理系统。
 
 后端技术栈：egg.js + mysql + sequelize + jwt 等
 
-前端技术栈：vue全家桶 + axios + elementUI + markdown编辑器等
+前端技术栈：vue3 + vite + ant-design-vue + pinia + windicss等
 
 前端项目地址：https://gitee.com/caiheping/oa-sys
 
