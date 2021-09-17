@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 10/09/2021 17:17:43
+ Date: 17/09/2021 15:17:48
 */
 
 SET NAMES utf8mb4;
@@ -37,7 +37,7 @@ CREATE TABLE `clock_ins`  (
   `updatedAt` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 95 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 96 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of clock_ins
@@ -234,7 +234,7 @@ INSERT INTO `evections` VALUES (23, 1, 1, '3', NULL, NULL, '2021-10-09 16:20:00'
 INSERT INTO `evections` VALUES (24, 4, 1, '3', NULL, 'fdsafdsa', '2021-09-11 17:37:00', '2021-09-30 17:37:00', '2', NULL, '2021-09-01 17:37:07', 'admin', '2021-09-09 17:39:05', 'admin');
 INSERT INTO `evections` VALUES (25, 5, 2, '3', NULL, 'vvvv', '2021-09-09 14:33:00', '2021-09-17 14:33:00', '2', NULL, '2021-09-02 14:34:02', 'test', '2021-09-09 17:39:19', 'admin');
 INSERT INTO `evections` VALUES (26, 5, 2, '1', NULL, 'fdsaf', '2021-09-09 14:47:00', '2021-09-16 14:47:00', '0', NULL, '2021-09-02 14:47:15', 'test', NULL, NULL);
-INSERT INTO `evections` VALUES (27, 1, 1, '2', NULL, 'fdsa ', '2021-09-09 17:38:00', '2021-09-24 17:38:00', '0', NULL, '2021-09-09 17:38:50', 'admin', NULL, NULL);
+INSERT INTO `evections` VALUES (27, 1, 1, '2', NULL, 'fdsa ', '2021-09-09 17:38:00', '2021-09-24 17:38:00', '1', NULL, '2021-09-09 17:38:50', 'admin', '2021-09-17 15:14:41', 'admin');
 
 -- ----------------------------
 -- Table structure for leaves
@@ -256,13 +256,13 @@ CREATE TABLE `leaves`  (
   `updatedAt` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of leaves
 -- ----------------------------
 INSERT INTO `leaves` VALUES (5, 4, 1, '5', 2, '发', '0', '2021-08-14 09:00:00', '2021-08-15 11:31:00', NULL, '2021-08-18 15:33:37', 'admin', '2021-09-10 15:29:51', 'admin');
-INSERT INTO `leaves` VALUES (6, 1, 1, '3', 24, '20321', '0', '2021-09-17 15:42:00', '2021-09-18 15:42:00', NULL, '2021-09-10 15:42:46', 'admin', '2021-09-10 15:43:04', 'admin');
+INSERT INTO `leaves` VALUES (6, 1, 1, '3', 24, '20321', '2', '2021-09-17 15:42:00', '2021-09-18 15:42:00', NULL, '2021-09-10 15:42:46', 'admin', '2021-09-17 15:14:29', 'admin');
 
 -- ----------------------------
 -- Table structure for logs
@@ -280,7 +280,7 @@ CREATE TABLE `logs`  (
   `updatedAt` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 324 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 461 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of logs
@@ -675,6 +675,48 @@ INSERT INTO `logs` VALUES (415, 'DELETE', '/api/v1/admin/finance/salary/30,31', 
 INSERT INTO `logs` VALUES (416, 'POST', '/api/v1/admin/finance/salary/createEmployeeSalary', '127.0.0.1', '{\"dateTime\":\"2021-08-10\",\"dateLists\":[{\"id\":59,\"day\":\"2021-08-30\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:19\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":58,\"day\":\"2021-08-31\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:18\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":57,\"day\":\"2021-08-23\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:17\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":56,\"day\":\"2021-08-24\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:15\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":55,\"day\":\"2021-08-25\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:14\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":54,\"day\":\"2021-08-26\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:13\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":53,\"day\":\"2021-08-27\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:12\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":52,\"day\":\"2021-08-20\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:10\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":51,\"day\":\"2021-08-19\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:09\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":50,\"day\":\"2021-08-18\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:08\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":49,\"day\":\"2021-08-17\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:07\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":48,\"day\":\"2021-08-16\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:05\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":47,\"day\":\"2021-08-09\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:04\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":46,\"day\":\"2021-08-10\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:03\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":45,\"day\":\"2021-08-11\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:01\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":44,\"day\":\"2021-08-12\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:00\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":43,\"day\":\"2021-08-13\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:59\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":42,\"day\":\"2021-08-06\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:58\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":41,\"day\":\"2021-08-05\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:57\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":40,\"day\":\"2021-08-04\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:55\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":39,\"day\":\"2021-08-03\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:54\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":38,\"day\":\"2021-08-02\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:51\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null}]}', 200, '2021-09-10 16:55:19', 'admin', NULL, NULL);
 INSERT INTO `logs` VALUES (417, 'DELETE', '/api/v1/admin/finance/salary/32,33,28,29', '127.0.0.1', '{}', 200, '2021-09-10 17:05:07', 'admin', NULL, NULL);
 INSERT INTO `logs` VALUES (418, 'POST', '/api/v1/admin/finance/salary/createEmployeeSalary', '127.0.0.1', '{\"dateTime\":\"2021-08-10\",\"dateLists\":[{\"id\":59,\"day\":\"2021-08-30\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:19\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":58,\"day\":\"2021-08-31\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:18\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":57,\"day\":\"2021-08-23\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:17\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":56,\"day\":\"2021-08-24\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:15\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":55,\"day\":\"2021-08-25\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:14\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":54,\"day\":\"2021-08-26\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:13\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":53,\"day\":\"2021-08-27\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:12\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":52,\"day\":\"2021-08-20\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:10\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":51,\"day\":\"2021-08-19\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:09\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":50,\"day\":\"2021-08-18\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:08\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":49,\"day\":\"2021-08-17\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:07\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":48,\"day\":\"2021-08-16\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:05\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":47,\"day\":\"2021-08-09\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:04\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":46,\"day\":\"2021-08-10\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:03\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":45,\"day\":\"2021-08-11\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:01\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":44,\"day\":\"2021-08-12\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:03:00\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":43,\"day\":\"2021-08-13\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:59\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":42,\"day\":\"2021-08-06\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:58\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":41,\"day\":\"2021-08-05\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:57\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":40,\"day\":\"2021-08-04\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:55\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":39,\"day\":\"2021-08-03\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:54\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":38,\"day\":\"2021-08-02\",\"remark\":\"\",\"createdAt\":\"2021-09-10 16:02:51\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null}]}', 200, '2021-09-10 17:05:18', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (419, 'POST', '/api/v1/upload', '127.0.0.1', '{}', 200, '2021-09-12 16:36:49', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (420, 'PUT', '/api/v1/admin/system/user/1/updateUserImg', '127.0.0.1', '{\"avatar\":\"/uploads/1/CHP_1631435809661_16f194d7b8580d2950c33ab2c9e549d2.jpg\"}', 200, '2021-09-12 16:36:49', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (421, 'POST', '/api/v1/upload', '127.0.0.1', '{}', 200, '2021-09-12 16:44:27', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (422, 'PUT', '/api/v1/admin/system/user/1/updateUserImg', '127.0.0.1', '{\"avatar\":\"/uploads/1/CHP_1631436267840_16f194d7b8580d2950c33ab2c9e549d2.jpg\"}', 200, '2021-09-12 16:44:28', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (423, 'POST', '/api/v1/upload', '127.0.0.1', '{}', 200, '2021-09-12 16:46:51', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (424, 'PUT', '/api/v1/admin/system/user/1/updateUserImg', '127.0.0.1', '{\"avatar\":\"/uploads/1/CHP_1631436411811_16f194d7b8580d2950c33ab2c9e549d2.jpg\"}', 200, '2021-09-12 16:46:51', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (425, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"htgz\"}', 200, '2021-09-13 10:45:31', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (426, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"x58d\"}', 200, '2021-09-14 10:07:44', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (427, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"ejy2\"}', 200, '2021-09-14 11:34:12', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (428, 'POST', '/api/v1/admin/system/menu', '127.0.0.1', '{\"parentId\":87,\"menuType\":\"F\",\"title\":\"查询\",\"orderNum\":\"1\",\"perms\":\"baseInfo:workingDaySettings:list\",\"visible\":\"1\",\"status\":\"1\",\"keepAlive\":1,\"isFrame\":\"0\",\"createdAt\":\"2021-09-14T03:40:24.070Z\",\"createdBy\":\"admin\"}', 200, '2021-09-14 11:40:24', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (429, 'POST', '/api/v1/admin/system/menu', '127.0.0.1', '{\"parentId\":87,\"menuType\":\"F\",\"title\":\"新增\",\"orderNum\":2,\"perms\":\"baseInfo:workingDaySettings:add\",\"visible\":\"1\",\"status\":\"1\",\"keepAlive\":1,\"isFrame\":\"0\",\"createdAt\":\"2021-09-14T03:40:36.370Z\",\"createdBy\":\"admin\"}', 200, '2021-09-14 11:40:36', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (430, 'POST', '/api/v1/admin/system/menu', '127.0.0.1', '{\"parentId\":87,\"menuType\":\"F\",\"title\":\"修改\",\"orderNum\":3,\"perms\":\"baseInfo:workingDaySettings:update\",\"visible\":\"1\",\"status\":\"1\",\"keepAlive\":1,\"isFrame\":\"0\",\"createdAt\":\"2021-09-14T03:40:50.153Z\",\"createdBy\":\"admin\"}', 200, '2021-09-14 11:40:50', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (431, 'POST', '/api/v1/admin/system/menu', '127.0.0.1', '{\"parentId\":87,\"menuType\":\"F\",\"title\":\"删除\",\"orderNum\":4,\"perms\":\"baseInfo:workingDaySettings:delete\",\"visible\":\"1\",\"status\":\"1\",\"keepAlive\":1,\"isFrame\":\"0\",\"createdAt\":\"2021-09-14T03:41:03.299Z\",\"createdBy\":\"admin\"}', 200, '2021-09-14 11:41:03', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (432, 'POST', '/api/v1/admin/finance/salary/createEmployeeSalary', '127.0.0.1', '{\"dateTime\":\"2021-09-14\",\"dateLists\":[{\"id\":35,\"day\":\"2021-09-08\",\"remark\":\"上班啦\",\"createdAt\":\"2021-09-08 15:06:21\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":34,\"day\":\"2021-09-21\",\"remark\":\"上班啦\",\"createdAt\":\"2021-09-08 14:57:59\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":31,\"day\":\"2021-09-30\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:23\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":30,\"day\":\"2021-09-29\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:21\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":29,\"day\":\"2021-09-28\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:19\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":28,\"day\":\"2021-09-27\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:17\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":27,\"day\":\"2021-09-24\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:14\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":26,\"day\":\"2021-09-23\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:13\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":25,\"day\":\"2021-09-22\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:11\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":23,\"day\":\"2021-09-20\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:07\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":22,\"day\":\"2021-09-17\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:05\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":21,\"day\":\"2021-09-16\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:03\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":20,\"day\":\"2021-09-15\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:01\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":19,\"day\":\"2021-09-14\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:58\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":18,\"day\":\"2021-09-13\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:56\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":17,\"day\":\"2021-09-10\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:54\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":16,\"day\":\"2021-09-09\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:52\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":15,\"day\":\"2021-09-07\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:50\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":14,\"day\":\"2021-09-06\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:48\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":12,\"day\":\"2021-09-03\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:38\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":11,\"day\":\"2021-09-02\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:35\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null}]}', 200, '2021-09-14 11:44:26', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (433, 'POST', '/api/v1/admin/finance/salary/createEmployeeSalary', '127.0.0.1', '{\"dateTime\":\"2021-03-14\",\"dateLists\":[{\"id\":35,\"day\":\"2021-09-08\",\"remark\":\"上班啦\",\"createdAt\":\"2021-09-08 15:06:21\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":34,\"day\":\"2021-09-21\",\"remark\":\"上班啦\",\"createdAt\":\"2021-09-08 14:57:59\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":31,\"day\":\"2021-09-30\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:23\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":30,\"day\":\"2021-09-29\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:21\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":29,\"day\":\"2021-09-28\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:19\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":28,\"day\":\"2021-09-27\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:17\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":27,\"day\":\"2021-09-24\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:14\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":26,\"day\":\"2021-09-23\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:13\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":25,\"day\":\"2021-09-22\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:11\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":23,\"day\":\"2021-09-20\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:07\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":22,\"day\":\"2021-09-17\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:05\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":21,\"day\":\"2021-09-16\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:03\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":20,\"day\":\"2021-09-15\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:52:01\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":19,\"day\":\"2021-09-14\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:58\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":18,\"day\":\"2021-09-13\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:56\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":17,\"day\":\"2021-09-10\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:54\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":16,\"day\":\"2021-09-09\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:52\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":15,\"day\":\"2021-09-07\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:50\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":14,\"day\":\"2021-09-06\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:48\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":12,\"day\":\"2021-09-03\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:38\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null},{\"id\":11,\"day\":\"2021-09-02\",\"remark\":\"上班\",\"createdAt\":\"2021-09-03 16:51:35\",\"createdBy\":\"admin\",\"updatedAt\":null,\"updatedBy\":null}]}', 200, '2021-09-14 11:50:16', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (434, 'PUT', '/api/v1/admin/system/systemConfig/9', '127.0.0.1', '{\"id\":9,\"name\":\"社保\",\"keyName\":\"socialSecurity\",\"key\":\"450\",\"remark\":\"社保\",\"updatedAt\":\"2021-09-14T03:54:50.029Z\",\"updatedBy\":\"admin\"}', 200, '2021-09-14 11:54:50', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (435, 'POST', '/api/v1/admin/finance/salary', '127.0.0.1', '{\"yearAndMounth\":\"2021-01-14T03:58:47.932Z\",\"createdAt\":\"2021-09-14T04:00:05.362Z\",\"createdBy\":\"admin\",\"userId\":1,\"total\":0}', 200, '2021-09-14 12:00:05', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (436, 'DELETE', '/api/v1/admin/finance/salary/40', '127.0.0.1', '{}', 200, '2021-09-14 12:00:12', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (437, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"wuhp\"}', 200, '2021-09-15 09:04:50', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (438, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"fky4\"}', 200, '2021-09-15 14:08:00', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (439, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"ttty\"}', 200, '2021-09-16 14:12:33', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (440, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"grht\"}', 200, '2021-09-16 14:14:33', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (441, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"mhxv\"}', 200, '2021-09-16 14:37:58', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (442, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"3gwa\"}', 200, '2021-09-16 14:56:03', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (443, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"jndk\"}', 200, '2021-09-17 11:37:36', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (444, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"wyqh\"}', 200, '2021-09-17 14:48:22', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (445, 'PUT', '/api/v1/admin/system/user/4', '127.0.0.1', '{\"id\":4,\"deptId\":1,\"nickName\":\"管理员\",\"userName\":\"ces\",\"password\":\"$2a$10$1Y0dHC8BsQm6nrdN4p.m6.GDNCmTUcr9s2KRvuQsrfJ2koXWra/Ay\",\"sex\":\"0\",\"roleIds\":[2],\"mobile\":null,\"status\":\"1\",\"email\":null,\"salary\":null,\"position\":\"1\",\"entryTime\":null,\"birthday\":null,\"education\":null,\"remark\":null}', 200, '2021-09-17 14:51:24', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (446, 'POST', '/api/v1/admin/system/role', '127.0.0.1', '{\"roleName\":\"临时用户\",\"roleKey\":\"lsyh\",\"roleSort\":10,\"status\":\"1\",\"menuIds\":[1,48,49,60,87,65,69,92,50,52,2,51,88,53,57,56,58,71,75,79,83,3,4,5,6,7,8,37,59,38,9,16,21,25,29,33,39,61,43],\"createdAt\":\"2021-09-17T06:56:31.670Z\",\"createdBy\":\"admin\"}', 200, '2021-09-17 14:56:31', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (447, 'POST', '/api/v1/admin/system/menu', '127.0.0.1', '{\"parentId\":38,\"menuType\":\"F\",\"title\":\"导出\",\"orderNum\":10,\"perms\":\"system:logs:export\",\"visible\":\"1\",\"status\":\"1\",\"keepAlive\":1,\"isFrame\":\"0\",\"createdAt\":\"2021-09-17T06:57:07.009Z\",\"createdBy\":\"admin\"}', 200, '2021-09-17 14:57:07', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (448, 'POST', '/api/v1/admin/system/user', '127.0.0.1', '{\"deptId\":1,\"nickName\":\"临时用户\",\"userName\":\"test123\",\"password\":\"$2a$10$Xf5iOpPV9b0TZRpXy7cK2uIGi1ijYXhhpNGkNpFipOZFqaiKUXXLG\",\"sex\":\"1\",\"roleIds\":[6],\"status\":\"1\",\"position\":\"1\"}', 200, '2021-09-17 14:58:39', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (449, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"test123\",\"password\":\"123456\",\"captcha\":\"sslq\"}', 200, '2021-09-17 14:58:52', 'test123', NULL, NULL);
+INSERT INTO `logs` VALUES (450, 'POST', '/api/v1/login', '127.0.0.1', '{\"userName\":\"admin\",\"password\":\"123456\",\"captcha\":\"bdkw\"}', 200, '2021-09-17 15:08:57', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (451, 'PUT', '/api/v1/admin/examineAndApprove/workOverTime/21', '127.0.0.1', '{\"id\":21,\"workOverTimeReason\":null,\"startTime\":\"2021-09-09 17:00:00\",\"endTime\":\"2021-09-24 17:00:00\",\"status\":\"1\",\"updatedAt\":\"2021-09-17T07:13:14.117Z\",\"updatedBy\":\"admin\"}', 200, '2021-09-17 15:13:14', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (452, 'PUT', '/api/v1/admin/examineAndApprove/workOverTime/21', '127.0.0.1', '{\"id\":21,\"workOverTimeReason\":\"叫你加你就加\",\"time\":[\"2021-09-09 17:00:00\",\"2021-09-24 17:00:00\"],\"startTime\":\"2021-09-09 17:00:00\",\"endTime\":\"2021-09-24 17:00:00\",\"status\":\"1\",\"updatedAt\":\"2021-09-17T07:13:40.380Z\",\"updatedBy\":\"admin\"}', 200, '2021-09-17 15:13:40', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (453, 'PUT', '/api/v1/admin/examineAndApprove/workOverTime/21', '127.0.0.1', '{\"id\":21,\"workOverTimeReason\":\"叫你加你就加\",\"startTime\":\"2021-09-09 17:00:00\",\"endTime\":\"2021-09-24 17:00:00\",\"status\":\"2\",\"updatedAt\":\"2021-09-17T07:13:55.174Z\",\"updatedBy\":\"admin\"}', 200, '2021-09-17 15:13:55', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (454, 'PUT', '/api/v1/admin/examineAndApprove/workOverTime/21', '127.0.0.1', '{\"id\":21,\"workOverTimeReason\":\"叫你加你就加\",\"startTime\":\"2021-09-09 17:00:00\",\"endTime\":\"2021-09-24 17:00:00\",\"status\":\"1\",\"updatedAt\":\"2021-09-17T07:14:02.566Z\",\"updatedBy\":\"admin\"}', 200, '2021-09-17 15:14:02', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (455, 'PUT', '/api/v1/admin/examineAndApprove/workOverTime/21', '127.0.0.1', '{\"id\":21,\"workOverTimeReason\":\"叫你加你就加\",\"startTime\":\"2021-09-09 17:00:00\",\"endTime\":\"2021-09-24 17:00:00\",\"status\":\"2\",\"updatedAt\":\"2021-09-17T07:14:07.261Z\",\"updatedBy\":\"admin\"}', 200, '2021-09-17 15:14:07', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (456, 'PUT', '/api/v1/admin/examineAndApprove/workOverTime/20', '127.0.0.1', '{\"id\":20,\"workOverTimeReason\":null,\"startTime\":\"2021-09-03 17:00:00\",\"endTime\":\"2021-09-21 17:00:00\",\"status\":\"1\",\"updatedAt\":\"2021-09-17T07:14:09.707Z\",\"updatedBy\":\"admin\"}', 200, '2021-09-17 15:14:09', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (457, 'PUT', '/api/v1/admin/examineAndApprove/workOverTime/19', '127.0.0.1', '{\"id\":19,\"workOverTimeReason\":null,\"startTime\":\"2021-09-04 17:00:00\",\"endTime\":\"2021-09-11 17:00:00\",\"status\":\"2\",\"updatedAt\":\"2021-09-17T07:14:13.376Z\",\"updatedBy\":\"admin\"}', 200, '2021-09-17 15:14:13', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (458, 'PUT', '/api/v1/admin/examineAndApprove/workOverTime/18', '127.0.0.1', '{\"id\":18,\"workOverTimeReason\":null,\"startTime\":\"2021-09-09 17:00:00\",\"endTime\":\"2021-09-10 17:00:00\",\"status\":\"2\",\"updatedAt\":\"2021-09-17T07:14:16.471Z\",\"updatedBy\":\"admin\"}', 200, '2021-09-17 15:14:16', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (459, 'PUT', '/api/v1/admin/examineAndApprove/leave/6', '127.0.0.1', '{\"id\":6,\"type\":\"3\",\"leaveReason\":\"20321\",\"startTime\":\"2021-09-17 15:42:00\",\"endTime\":\"2021-09-18 15:42:00\",\"status\":\"2\",\"updatedAt\":\"2021-09-17T07:14:29.747Z\",\"updatedBy\":\"admin\",\"leaveDuration\":24}', 200, '2021-09-17 15:14:29', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (460, 'PUT', '/api/v1/admin/examineAndApprove/evection/27', '127.0.0.1', '{\"id\":27,\"type\":\"2\",\"evectionReason\":\"fdsa \",\"startTime\":\"2021-09-09 17:38:00\",\"endTime\":\"2021-09-24 17:38:00\",\"status\":\"1\",\"updatedAt\":\"2021-09-17T07:14:41.914Z\",\"updatedBy\":\"admin\"}', 200, '2021-09-17 15:14:41', 'admin', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for make_up_cards
@@ -735,7 +777,7 @@ CREATE TABLE `menus`  (
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 92 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 97 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menus
@@ -829,6 +871,11 @@ INSERT INTO `menus` VALUES (88, 51, '查询', NULL, NULL, NULL, '0', 'F', '1', 1
 INSERT INTO `menus` VALUES (89, 51, '新增', NULL, NULL, NULL, '0', 'F', '1', 2, '1', 'finance:salary:add', 1, '', '0', NULL, '2021-09-07 15:50:59', 'admin', NULL, NULL);
 INSERT INTO `menus` VALUES (90, 51, '修改', NULL, NULL, NULL, '0', 'F', '1', 3, '1', 'finance:salary:update', 1, '', '0', NULL, '2021-09-07 15:51:14', 'admin', NULL, NULL);
 INSERT INTO `menus` VALUES (91, 51, '删除', NULL, NULL, NULL, '0', 'F', '1', 4, '1', 'finance:salary:delete', 1, '', '0', NULL, '2021-09-07 15:51:28', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (92, 87, '查询', NULL, NULL, NULL, '0', 'F', '1', 1, '1', 'baseInfo:workingDaySettings:list', 1, '', '0', NULL, '2021-09-14 11:40:24', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (93, 87, '新增', NULL, NULL, NULL, '0', 'F', '1', 2, '1', 'baseInfo:workingDaySettings:add', 1, '', '0', NULL, '2021-09-14 11:40:36', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (94, 87, '修改', NULL, NULL, NULL, '0', 'F', '1', 3, '1', 'baseInfo:workingDaySettings:update', 1, '', '0', NULL, '2021-09-14 11:40:50', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (95, 87, '删除', NULL, NULL, NULL, '0', 'F', '1', 4, '1', 'baseInfo:workingDaySettings:delete', 1, '', '0', NULL, '2021-09-14 11:41:03', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (96, 38, '导出', NULL, NULL, NULL, '0', 'F', '1', 10, '1', 'system:logs:export', 1, '', '0', NULL, '2021-09-17 14:57:07', 'admin', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for notices
@@ -856,7 +903,7 @@ CREATE TABLE `role_menus`  (
   `roleId` int(11) NOT NULL COMMENT '角色roleId',
   `menuId` int(11) NOT NULL COMMENT '菜单menuId',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 968 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1007 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of role_menus
@@ -1072,6 +1119,45 @@ INSERT INTO `role_menus` VALUES (964, 3, 88);
 INSERT INTO `role_menus` VALUES (965, 3, 89);
 INSERT INTO `role_menus` VALUES (966, 3, 90);
 INSERT INTO `role_menus` VALUES (967, 3, 91);
+INSERT INTO `role_menus` VALUES (968, 6, 1);
+INSERT INTO `role_menus` VALUES (969, 6, 48);
+INSERT INTO `role_menus` VALUES (970, 6, 49);
+INSERT INTO `role_menus` VALUES (971, 6, 60);
+INSERT INTO `role_menus` VALUES (972, 6, 87);
+INSERT INTO `role_menus` VALUES (973, 6, 65);
+INSERT INTO `role_menus` VALUES (974, 6, 69);
+INSERT INTO `role_menus` VALUES (975, 6, 92);
+INSERT INTO `role_menus` VALUES (976, 6, 50);
+INSERT INTO `role_menus` VALUES (977, 6, 52);
+INSERT INTO `role_menus` VALUES (978, 6, 2);
+INSERT INTO `role_menus` VALUES (979, 6, 51);
+INSERT INTO `role_menus` VALUES (980, 6, 88);
+INSERT INTO `role_menus` VALUES (981, 6, 53);
+INSERT INTO `role_menus` VALUES (982, 6, 57);
+INSERT INTO `role_menus` VALUES (983, 6, 56);
+INSERT INTO `role_menus` VALUES (984, 6, 58);
+INSERT INTO `role_menus` VALUES (985, 6, 71);
+INSERT INTO `role_menus` VALUES (986, 6, 75);
+INSERT INTO `role_menus` VALUES (987, 6, 79);
+INSERT INTO `role_menus` VALUES (988, 6, 83);
+INSERT INTO `role_menus` VALUES (989, 6, 3);
+INSERT INTO `role_menus` VALUES (990, 6, 4);
+INSERT INTO `role_menus` VALUES (991, 6, 5);
+INSERT INTO `role_menus` VALUES (992, 6, 6);
+INSERT INTO `role_menus` VALUES (993, 6, 7);
+INSERT INTO `role_menus` VALUES (994, 6, 8);
+INSERT INTO `role_menus` VALUES (995, 6, 37);
+INSERT INTO `role_menus` VALUES (996, 6, 59);
+INSERT INTO `role_menus` VALUES (997, 6, 38);
+INSERT INTO `role_menus` VALUES (998, 6, 9);
+INSERT INTO `role_menus` VALUES (999, 6, 16);
+INSERT INTO `role_menus` VALUES (1000, 6, 21);
+INSERT INTO `role_menus` VALUES (1001, 6, 25);
+INSERT INTO `role_menus` VALUES (1002, 6, 29);
+INSERT INTO `role_menus` VALUES (1003, 6, 33);
+INSERT INTO `role_menus` VALUES (1004, 6, 39);
+INSERT INTO `role_menus` VALUES (1005, 6, 61);
+INSERT INTO `role_menus` VALUES (1006, 6, 43);
 
 -- ----------------------------
 -- Table structure for roles
@@ -1091,7 +1177,7 @@ CREATE TABLE `roles`  (
   `updatedAt` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of roles
@@ -1099,6 +1185,7 @@ CREATE TABLE `roles`  (
 INSERT INTO `roles` VALUES (1, '超级管理员', 'admin', 1, '1', '1', '0', NULL, '2021-08-16 15:56:26', 'admin', '2021-09-02 11:13:28', 'admin');
 INSERT INTO `roles` VALUES (2, '管理员', 'gly', 10, '1', '1', '0', '管理员', '2021-08-17 10:53:32', 'admin', '2021-09-02 11:56:03', 'admin');
 INSERT INTO `roles` VALUES (3, '员工', 'yg', 20, '3', '1', '0', NULL, '2021-09-02 09:28:49', 'admin', '2021-09-07 15:51:37', 'admin');
+INSERT INTO `roles` VALUES (6, '临时用户', 'lsyh', 10, '1', '1', '0', NULL, '2021-09-17 14:56:31', 'admin', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for salarys
@@ -1122,13 +1209,17 @@ CREATE TABLE `salarys`  (
   `updatedAt` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of salarys
 -- ----------------------------
 INSERT INTO `salarys` VALUES (34, 5, '2021-08-10 08:00:00', 154, 154, 0, 0, 0, 0.00, 1700.00, 0.00, 10800.00, '2021-09-10 17:05:18', 'admin', NULL, NULL);
 INSERT INTO `salarys` VALUES (35, 6, '2021-08-10 08:00:00', 154, 0, 0, 0, 0, 0.00, 1370.00, 0.00, -1370.00, '2021-09-10 17:05:18', 'admin', NULL, NULL);
+INSERT INTO `salarys` VALUES (36, 5, '2021-09-14 08:00:00', 147, 0, 0, 0, 0, 0.00, 1700.00, 0.00, -1700.00, '2021-09-14 11:44:26', 'admin', NULL, NULL);
+INSERT INTO `salarys` VALUES (37, 6, '2021-09-14 08:00:00', 147, 7, 0, 0, 0, 0.00, 1370.00, 0.00, -931.90, '2021-09-14 11:44:26', 'admin', NULL, NULL);
+INSERT INTO `salarys` VALUES (38, 5, '2021-03-14 08:00:00', 147, 0, 0, 0, 0, 0.00, 1700.00, 0.00, -1700.00, '2021-09-14 11:50:16', 'admin', NULL, NULL);
+INSERT INTO `salarys` VALUES (39, 6, '2021-03-14 08:00:00', 147, 0, 0, 0, 0, 0.00, 1370.00, 0.00, -1370.00, '2021-09-14 11:50:16', 'admin', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sequelizemeta
@@ -1190,7 +1281,7 @@ INSERT INTO `system_configs` VALUES (5, '产假', 'maternity_leave', '90', '产�
 INSERT INTO `system_configs` VALUES (6, '陪产假', 'paternity_leave', '7', '陪产假时长', '2021-08-31 17:41:06', 'admin', NULL, NULL);
 INSERT INTO `system_configs` VALUES (7, '婚假', 'marriage_holiday', '7', '婚假时长', '2021-08-31 17:41:35', 'admin', NULL, NULL);
 INSERT INTO `system_configs` VALUES (8, '一天工作时长', 'working_hours', '7', '一天工作时长', '2021-09-08 15:26:49', 'admin', NULL, NULL);
-INSERT INTO `system_configs` VALUES (9, '社保', 'socialSecurity', '450', NULL, '2021-09-08 16:45:38', 'admin', NULL, NULL);
+INSERT INTO `system_configs` VALUES (9, '社保', 'socialSecurity', '450', '社保', '2021-09-08 16:45:38', 'admin', '2021-09-14 11:54:50', 'admin');
 INSERT INTO `system_configs` VALUES (10, '公积金', 'providentFund', '10', '公积金为工资10%', '2021-09-08 16:46:44', 'admin', NULL, NULL);
 
 -- ----------------------------
@@ -1202,15 +1293,16 @@ CREATE TABLE `user_roles`  (
   `userId` int(11) NOT NULL COMMENT '用户id',
   `roleId` int(11) NOT NULL COMMENT '角色id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_roles
 -- ----------------------------
 INSERT INTO `user_roles` VALUES (5, 1, 1);
-INSERT INTO `user_roles` VALUES (12, 4, 2);
 INSERT INTO `user_roles` VALUES (16, 5, 3);
 INSERT INTO `user_roles` VALUES (17, 6, 3);
+INSERT INTO `user_roles` VALUES (18, 4, 2);
+INSERT INTO `user_roles` VALUES (19, 8, 6);
 
 -- ----------------------------
 -- Table structure for users
@@ -1242,15 +1334,16 @@ CREATE TABLE `users`  (
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `userName`(`userName`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 1, 'admin', 'admin', '1', '$2a$10$DASIjFwPy4yRRcPnWtx0/OT.t9M6ZF8zt963vnPgDdhiCtjEuSqee', NULL, NULL, NULL, NULL, NULL, NULL, '3', '1', '0', '1', 0, 0, '', '2021-08-16 15:56:26', 'admin', '2021-08-17 10:43:18', 'admin');
-INSERT INTO `users` VALUES (4, 1, 'ces', '测试', '0', '$2a$10$1Y0dHC8BsQm6nrdN4p.m6.GDNCmTUcr9s2KRvuQsrfJ2koXWra/Ay', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '0', '1', 6, 2, NULL, '2021-08-17 10:47:41', 'admin', '2021-09-01 11:29:40', 'admin');
+INSERT INTO `users` VALUES (1, 1, 'admin', 'admin', '1', '$2a$10$DASIjFwPy4yRRcPnWtx0/OT.t9M6ZF8zt963vnPgDdhiCtjEuSqee', '/uploads/1/CHP_1631436411811_16f194d7b8580d2950c33ab2c9e549d2.jpg', NULL, NULL, NULL, NULL, NULL, '3', '1', '0', '1', 0, 0, '', '2021-08-16 15:56:26', 'admin', '2021-08-17 10:43:18', 'admin');
+INSERT INTO `users` VALUES (4, 1, 'ces', '管理员', '0', '$2a$10$1Y0dHC8BsQm6nrdN4p.m6.GDNCmTUcr9s2KRvuQsrfJ2koXWra/Ay', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '0', '1', 6, 2, NULL, '2021-08-17 10:47:41', 'admin', '2021-09-17 14:51:24', 'admin');
 INSERT INTO `users` VALUES (5, 2, 'test', '技术主管', '1', '$2a$10$iuv3rfdpfyPJyrKm/r834uwIscGOuAXZdAFMz6D5xWvoJNr3c9JfC', NULL, NULL, NULL, 12500.00, NULL, NULL, NULL, '2', '0', '1', 0, 0, NULL, '2021-09-01 17:43:01', 'admin', '2021-09-07 15:56:24', 'admin');
 INSERT INTO `users` VALUES (6, 2, 'acai', '阿财', '1', '$2a$10$mT79t.te4d2HKSjNGpE8n.okuOeS.ZQlQFiLNhMO0eTCdKNPAXDdK', NULL, '1670341607@qq.com', '13444556620', 9200.00, '2021-09-13 16:44:36', NULL, NULL, '3', '0', '1', 0, 0, NULL, '2021-09-10 16:44:44', 'admin', NULL, NULL);
+INSERT INTO `users` VALUES (8, 1, 'test123', '临时用户', '1', '$2a$10$Xf5iOpPV9b0TZRpXy7cK2uIGi1ijYXhhpNGkNpFipOZFqaiKUXXLG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '0', '1', 0, 0, NULL, '2021-09-17 14:58:39', 'admin', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for work_over_times
@@ -1291,10 +1384,10 @@ INSERT INTO `work_over_times` VALUES (14, 1, 1, NULL, NULL, '2021-09-03 17:00:00
 INSERT INTO `work_over_times` VALUES (15, 1, 1, NULL, NULL, '2021-09-03 17:00:00', '2021-09-10 17:00:00', '0', NULL, '2021-09-01 17:00:58', 'admin', NULL, NULL);
 INSERT INTO `work_over_times` VALUES (16, 1, 1, NULL, NULL, '2021-09-07 17:00:00', '2021-09-07 17:00:00', '0', NULL, '2021-09-01 17:01:01', 'admin', NULL, NULL);
 INSERT INTO `work_over_times` VALUES (17, 1, 1, NULL, NULL, '2021-09-03 17:00:00', '2021-09-03 17:00:00', '0', NULL, '2021-09-01 17:01:05', 'admin', NULL, NULL);
-INSERT INTO `work_over_times` VALUES (18, 1, 1, NULL, NULL, '2021-09-09 17:00:00', '2021-09-10 17:00:00', '0', NULL, '2021-09-01 17:01:11', 'admin', NULL, NULL);
-INSERT INTO `work_over_times` VALUES (19, 1, 1, NULL, NULL, '2021-09-04 17:00:00', '2021-09-11 17:00:00', '0', NULL, '2021-09-01 17:01:14', 'admin', NULL, NULL);
-INSERT INTO `work_over_times` VALUES (20, 1, 1, NULL, NULL, '2021-09-03 17:00:00', '2021-09-21 17:00:00', '0', NULL, '2021-09-01 17:01:20', 'admin', NULL, NULL);
-INSERT INTO `work_over_times` VALUES (21, 1, 1, NULL, NULL, '2021-09-09 17:00:00', '2021-09-24 17:00:00', '0', NULL, '2021-09-01 17:01:23', 'admin', NULL, NULL);
+INSERT INTO `work_over_times` VALUES (18, 1, 1, NULL, NULL, '2021-09-09 17:00:00', '2021-09-10 17:00:00', '2', NULL, '2021-09-01 17:01:11', 'admin', '2021-09-17 15:14:16', 'admin');
+INSERT INTO `work_over_times` VALUES (19, 1, 1, NULL, NULL, '2021-09-04 17:00:00', '2021-09-11 17:00:00', '2', NULL, '2021-09-01 17:01:14', 'admin', '2021-09-17 15:14:13', 'admin');
+INSERT INTO `work_over_times` VALUES (20, 1, 1, NULL, NULL, '2021-09-03 17:00:00', '2021-09-21 17:00:00', '1', NULL, '2021-09-01 17:01:20', 'admin', '2021-09-17 15:14:09', 'admin');
+INSERT INTO `work_over_times` VALUES (21, 1, 1, NULL, '叫你加你就加', '2021-09-09 17:00:00', '2021-09-24 17:00:00', '2', NULL, '2021-09-01 17:01:23', 'admin', '2021-09-17 15:14:07', 'admin');
 
 -- ----------------------------
 -- Table structure for working_day_settings
@@ -1309,7 +1402,7 @@ CREATE TABLE `working_day_settings`  (
   `updatedAt` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 60 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of working_day_settings
