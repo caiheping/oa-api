@@ -36,7 +36,11 @@ npm install
 
 创建数据库egg_oa_sys
 
-在egg_oa_sys数据库下导入项目根目录下egg-oa-sys.sql文件
+master分支运行：在egg_oa_sys数据库下导入项目根目录下 egg-oa-sys.sql 文件
+
+feature-oa分支运行：在egg_oa_sys数据库下导入项目根目录下 egg-oa-sys-2021-09-17-基础功能完成.sql 文件
+
+**备注：切换分支时要把数据库清空，重新导入对应分支的sql文件**
 
 运行项目
 
