@@ -57,6 +57,7 @@ admin登录账号：admin，密码： 123456
 
 ```bash
 oa-api
+├─ apidoc					// 接口文档
 ├─ app
 |	├─ controller			// 用于解析用户的输入，处理后返回相应的结果
 |	├─ extend				// 用于框架的扩展
@@ -88,6 +89,8 @@ oa-api
 用户名： test123
 
 密码：123456
+
+**后台接口文档在apidoc目录下**
 
 
 
