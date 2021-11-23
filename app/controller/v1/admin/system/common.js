@@ -6,6 +6,52 @@ const { mkdirsSync } = require('../../../../utils/tools');
 
 class CommonController extends Controller {
 
+  /**
+   * @api {post} /login 登录
+   * @apiGroup Common-基础模块
+   *
+   * @apiParam {String} userName 用户名
+   * @apiParam {String} password 密码
+   * @apiParam {String} captcha 验证码
+   * @apiSuccessExample
+      {
+        "code": 0,
+        "message": "成功",
+        "data": {
+          "userInfo": {
+            "id": 1,
+            "deptId": 1,
+            "userName": "admin",
+            "nickName": "admin123",
+            "sex": "1",
+            "password": "$2a$10$h9F9wNK9FBW3LQpjH/mGHurD88WNfYUVYwSRe0wnoYT8tJVAjK0Sm",
+            "avatar": "/uploads/1/CHP_1634630176570_16f194d7b8580d2950c33ab2c9e549d2.jpg",
+            "email": "789sd@qq.com",
+            "mobile": "13711031522",
+            "isDelete": "0",
+            "status": "1",
+            "remark": "",
+            "createdAt": "2021-07-08 14:52:13",
+            "createdBy": "admin",
+            "updatedAt": "2021-07-09 15:14:59",
+            "updatedBy": "admin",
+            "department": {
+              "deptId": 1,
+              "parentId": 0,
+              "deptName": "总部",
+              "orderNum": 1,
+              "status": "1",
+              "isDelete": "0",
+              "createdAt": "2021-07-08 14:52:13",
+              "createdBy": "admin",
+              "updatedAt": null,
+              "updatedBy": null
+            }
+          },
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlck5hbWUiOiJhZG1pbiIsImlhdCI6MTYzNzU2NTgxMCwiZXhwIjoxNjM3NjUyMjEwfQ.9xW9Z5YepLGK6oguslel7eVh4kby3AegM5aZ4GePtSU"
+        }
+      }
+   */
   async login() {
     const { ctx, service } = this;
     ctx.state.user = null;
@@ -45,16 +91,23 @@ class CommonController extends Controller {
       userInfo: result,
       token,
     });
-
-
   }
-  // 登出
+
+
+  /**
+   * @api {post} /logout 登出
+   * @apiGroup Common-基础模块
+   */
   async logout() {
     const { ctx } = this;
     ctx.state = {};
     ctx.returnBody(null, 0);
   }
-  // 验证码
+
+  /**
+   * @api {get} /captcha 验证码
+   * @apiGroup Common-基础模块
+   */
   async captcha() {
     const { ctx, service } = this;
     const captcha = await service[this.app.config.public].admin.system.common.captcha(); // 服务里面的方法
@@ -63,7 +116,18 @@ class CommonController extends Controller {
   }
 
 
-  // 重置密码
+  /**
+   * @api {put} /admin/system/user/:id/resetPwd 重置密码
+   * @apiParam {Number} id id
+   * @apiParam {Number} newPassword 新密码
+   * @apiGroup Common-基础模块
+   * @apiSuccessExample
+      {
+        "code": 100030,
+        "message": "修改成功",
+        "data": null
+      }
+   */
   async resetPwd() {
     const { ctx, service } = this;
     const validate = Object.assign({}, ctx.request.body, ctx.params);
@@ -84,7 +148,19 @@ class CommonController extends Controller {
     }
   }
 
-  // 修改密码
+  /**
+   * @api {put} /admin/system/user/:id/updateUserPwd 修改密码
+   * @apiParam {Number} id id
+   * @apiParam {String} password 旧密码
+   * @apiParam {String} newPassword 新密码
+   * @apiGroup Common-基础模块
+   * @apiSuccessExample
+      {
+        "code": 100030,
+        "message": "修改成功",
+        "data": null
+      }
+   */
   async updateUserPwd() {
     const { ctx, service } = this;
     const validate = Object.assign({}, ctx.request.body, ctx.params);
@@ -108,7 +184,18 @@ class CommonController extends Controller {
     }
   }
 
-  // 修改头像
+  /**
+   * @api {put} /admin/system/user/:id/updateUserImg 修改头像
+   * @apiParam {Number} id id
+   * @apiParam {String} avatar 头像
+   * @apiGroup Common-基础模块
+   * @apiSuccessExample
+      {
+        "code": 100030,
+        "message": "修改成功",
+        "data": null
+      }
+   */
   async updateUserImg() {
     const { ctx, service } = this;
 
@@ -128,7 +215,19 @@ class CommonController extends Controller {
     }
   }
 
-  // 上传
+  /**
+   * @api {post} /upload 上传
+   * @apiParam {File} files 文件
+   * @apiGroup Common-基础模块
+   * @apiSuccessExample
+      {
+        "code": 0,
+        "message": "上传成功",
+        "data": {
+          path: "..."
+        }
+      }
+   */
   async upload() {
     const { ctx } = this;
     if (!ctx.request.files.length) {

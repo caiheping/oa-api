@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 19/07/2021 11:00:42
+ Date: 23/11/2021 15:00:39
 */
 
 SET NAMES utf8mb4;
@@ -33,7 +33,7 @@ CREATE TABLE `departments`  (
   `updatedAt` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`deptId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of departments
@@ -76,6 +76,12 @@ INSERT INTO `dict_datas` VALUES (3, 1, '正常', '1', 'sys_normal_disable', NULL
 INSERT INTO `dict_datas` VALUES (4, 2, '停用', '0', 'sys_normal_disable', NULL, NULL, 'Y', '1', '停用', '2021-07-08 14:52:13', 'admin', NULL, NULL);
 INSERT INTO `dict_datas` VALUES (5, 2, '男', '1', 'sys_user_sex', NULL, NULL, 'Y', '1', '男', '2021-07-08 14:52:13', 'admin', NULL, NULL);
 INSERT INTO `dict_datas` VALUES (6, 1, '女', '0', 'sys_user_sex', NULL, NULL, 'Y', '1', '女', '2021-07-08 14:52:13', 'admin', NULL, NULL);
+INSERT INTO `dict_datas` VALUES (7, 1, '消息', '1', 'sys_notice_type', NULL, NULL, 'Y', '1', '消息', '2021-11-23 14:48:36', 'admin', NULL, NULL);
+INSERT INTO `dict_datas` VALUES (8, 2, '公告', '2', 'sys_notice_type', NULL, NULL, 'Y', '1', '公告', '2021-11-23 14:48:46', 'admin', NULL, NULL);
+INSERT INTO `dict_datas` VALUES (9, 1, 'GET', 'GET', 'sys_method_type', NULL, NULL, 'Y', '1', 'GET', '2021-11-23 14:49:32', 'admin', NULL, NULL);
+INSERT INTO `dict_datas` VALUES (10, 2, 'POST', 'POST', 'sys_method_type', NULL, NULL, 'Y', '1', 'POST', '2021-11-23 14:49:41', 'admin', NULL, NULL);
+INSERT INTO `dict_datas` VALUES (11, 3, 'PUT', 'PUT', 'sys_method_type', NULL, NULL, 'Y', '1', 'PUT', '2021-11-23 14:49:50', 'admin', NULL, NULL);
+INSERT INTO `dict_datas` VALUES (12, 4, 'DELETE', 'DELETE', 'sys_method_type', NULL, NULL, 'Y', '1', 'DELETE', '2021-11-23 14:50:00', 'admin', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for dict_types
@@ -100,6 +106,40 @@ CREATE TABLE `dict_types`  (
 INSERT INTO `dict_types` VALUES (1, '显示状态', 'sys_show_hide', '1', '显示状态', '2021-07-08 14:52:13', 'admin', NULL, NULL);
 INSERT INTO `dict_types` VALUES (2, '状态数据', 'sys_normal_disable', '1', '状态数据', '2021-07-08 14:52:13', 'admin', NULL, NULL);
 INSERT INTO `dict_types` VALUES (3, '性别', 'sys_user_sex', '1', '性别', '2021-07-08 14:52:13', 'admin', NULL, NULL);
+INSERT INTO `dict_types` VALUES (4, '消息类型', 'sys_notice_type', '1', '消息类型', '2021-11-23 14:47:52', 'admin', NULL, NULL);
+INSERT INTO `dict_types` VALUES (5, '请求方式', 'sys_method_type', '1', '请求方式', '2021-11-23 14:48:11', 'admin', NULL, NULL);
+
+-- ----------------------------
+-- Table structure for logs
+-- ----------------------------
+DROP TABLE IF EXISTS `logs`;
+CREATE TABLE `logs`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `method` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '请求方式',
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
+  `ip` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'ip',
+  `data` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '请求参数',
+  `status` int(11) NULL DEFAULT NULL COMMENT 'http状态码',
+  `createdAt` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `createdBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建者',
+  `updatedAt` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of logs
+-- ----------------------------
+INSERT INTO `logs` VALUES (6, 'POST', '/api/v1/admin/system/dictData', '127.0.0.1', '{\"dictType\":\"sys_method_type\",\"dictLabel\":\"POST\",\"dictValue\":\"POST\",\"dictSort\":2,\"status\":\"1\",\"remark\":\"POST\",\"createdAt\":\"2021-11-23T06:49:41.165Z\",\"createdBy\":\"admin\"}', 200, '2021-11-23 14:49:41', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (7, 'POST', '/api/v1/admin/system/dictData', '127.0.0.1', '{\"dictType\":\"sys_method_type\",\"dictLabel\":\"PUT\",\"dictValue\":\"PUT\",\"dictSort\":3,\"status\":\"1\",\"remark\":\"PUT\",\"createdAt\":\"2021-11-23T06:49:50.968Z\",\"createdBy\":\"admin\"}', 200, '2021-11-23 14:49:50', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (8, 'POST', '/api/v1/admin/system/dictData', '127.0.0.1', '{\"dictType\":\"sys_method_type\",\"dictLabel\":\"DELETE\",\"dictValue\":\"DELETE\",\"dictSort\":4,\"status\":\"1\",\"remark\":\"DELETE\",\"createdAt\":\"2021-11-23T06:50:00.930Z\",\"createdBy\":\"admin\"}', 200, '2021-11-23 14:50:00', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (9, 'POST', '/api/v1/admin/system/notice', '127.0.0.1', '{\"noticeTitle\":\"公告\",\"noticeType\":\"2\",\"status\":\"1\",\"noticeContent\":\"这是公告\",\"createdAt\":\"2021-11-23T06:50:21.039Z\",\"createdBy\":\"admin\"}', 200, '2021-11-23 14:50:21', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (10, 'DELETE', '/api/v1/admin/system/logs/1', '127.0.0.1', '{}', 200, '2021-11-23 14:50:40', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (11, 'DELETE', '/api/v1/admin/system/logs/2', '127.0.0.1', '{}', 200, '2021-11-23 14:50:47', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (12, 'DELETE', '/api/v1/admin/system/logs/3', '127.0.0.1', '{}', 200, '2021-11-23 14:51:01', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (13, 'DELETE', '/api/v1/admin/system/logs/4,5', '127.0.0.1', '{}', 200, '2021-11-23 14:52:39', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (14, 'POST', '/api/v1/admin/system/user', '127.0.0.1', '{\"deptId\":3,\"nickName\":\"富士达\",\"userName\":\"sdfff\",\"password\":\"$2a$10$BBngMRpYaiG9hNnGbw/Obu4uDUEhB053ecKShrSo93f4T.AKwA1ri\",\"sex\":\"1\",\"roleIds\":[2],\"mobile\":\"13444556620\",\"status\":\"1\",\"email\":\"1670345555@qq.com\"}', 200, '2021-11-23 14:58:49', 'admin', NULL, NULL);
+INSERT INTO `logs` VALUES (15, 'PUT', '/api/v1/admin/system/role/2', '127.0.0.1', '{\"id\":2,\"roleName\":\"测试\",\"roleKey\":\"ces\",\"roleSort\":2,\"status\":\"1\",\"menuIds\":[2,3,9,10,11,14,4,16,17,18,19,20,5,21,22,23,24,6,25,26,27,28,7,29,30,31,32,8,33,34,35,36],\"remark\":\"测试\",\"updatedAt\":\"2021-11-23T06:59:43.751Z\",\"updatedBy\":\"admin\"}', 200, '2021-11-23 14:59:43', 'admin', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for menus
@@ -128,7 +168,7 @@ CREATE TABLE `menus`  (
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menus
@@ -169,6 +209,18 @@ INSERT INTO `menus` VALUES (33, 8, '查询', NULL, NULL, NULL, '0', 'F', '1', 1,
 INSERT INTO `menus` VALUES (34, 8, '新增', NULL, NULL, NULL, '0', 'F', '1', 2, '1', 'system:dictData:add', 0, '', '0', NULL, '2021-07-08 14:52:13', 'admin', NULL, NULL);
 INSERT INTO `menus` VALUES (35, 8, '修改', NULL, NULL, NULL, '0', 'F', '1', 3, '1', 'system:dictData:update', 0, '', '0', NULL, '2021-07-08 14:52:13', 'admin', NULL, NULL);
 INSERT INTO `menus` VALUES (36, 8, '删除', NULL, NULL, NULL, '0', 'F', '1', 4, '1', 'system:dictData:delete', 0, '', '0', NULL, '2021-07-08 14:52:13', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (38, 2, '消息公告', 'notice', 'Notice', 'Notice', '0', 'C', '1', 10, '1', NULL, 1, '', '0', NULL, '2021-11-23 11:33:55', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (39, 38, '查询', NULL, NULL, NULL, '0', 'F', '1', 1, '1', 'system:notice:list', 1, '', '0', NULL, '2021-11-23 11:44:43', 'admin', '2021-11-23 11:45:11', 'admin');
+INSERT INTO `menus` VALUES (40, 38, '新增', NULL, NULL, NULL, '0', 'F', '1', 2, '1', 'system:notice:add', 1, '', '0', NULL, '2021-11-23 11:45:05', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (41, 38, '修改', NULL, NULL, NULL, '0', 'F', '1', 3, '1', 'system:notice:update', 1, '', '0', NULL, '2021-11-23 11:45:26', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (42, 38, '删除', NULL, NULL, NULL, '0', 'F', '1', 4, '1', 'system:notice:delete	', 1, '', '0', NULL, '2021-11-23 11:45:42', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (43, 2, '系统日志', 'logs', 'Logs', 'Logs', '0', 'C', '1', 14, '1', 'system:notice:list', 1, '', '0', NULL, '2021-11-23 11:50:05', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (44, 43, '查询', NULL, NULL, NULL, '0', 'F', '1', 1, '1', 'system:logs:list', 1, '', '0', NULL, '2021-11-23 11:50:26', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (45, 43, '新增', NULL, NULL, NULL, '0', 'F', '1', 2, '1', 'system:logs:add', 1, '', '0', NULL, '2021-11-23 11:50:43', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (46, 43, '修改', NULL, NULL, NULL, '0', 'F', '1', 3, '1', 'system:logs:update	', 1, '', '0', NULL, '2021-11-23 11:50:59', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (47, 43, '删除', NULL, NULL, NULL, '0', 'F', '1', 4, '1', 'system:logs:delete', 1, '', '0', NULL, '2021-11-23 11:51:16', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (48, 43, '清空数据', NULL, NULL, NULL, '0', 'F', '1', 5, '1', 'system:logs:deleteAllLogs', 1, '', '0', NULL, '2021-11-23 11:51:33', 'admin', NULL, NULL);
+INSERT INTO `menus` VALUES (49, 43, '导出', NULL, NULL, NULL, '0', 'F', '1', 10, '1', 'system:logs:export', 1, '', '0', NULL, '2021-11-23 11:51:54', 'admin', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for notices
@@ -189,6 +241,11 @@ CREATE TABLE `notices`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of notices
+-- ----------------------------
+INSERT INTO `notices` VALUES (1, '公告', '2', '这是公告', '1', NULL, '2021-11-23 14:50:21', 'admin', NULL, NULL);
+
+-- ----------------------------
 -- Table structure for role_menus
 -- ----------------------------
 DROP TABLE IF EXISTS `role_menus`;
@@ -197,83 +254,91 @@ CREATE TABLE `role_menus`  (
   `roleId` int(11) NOT NULL COMMENT '角色roleId',
   `menuId` int(11) NOT NULL COMMENT '菜单menuId',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 73 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 384 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of role_menus
 -- ----------------------------
-INSERT INTO `role_menus` VALUES (1, 1, 1);
-INSERT INTO `role_menus` VALUES (2, 1, 2);
-INSERT INTO `role_menus` VALUES (3, 1, 3);
-INSERT INTO `role_menus` VALUES (4, 1, 4);
-INSERT INTO `role_menus` VALUES (5, 1, 5);
-INSERT INTO `role_menus` VALUES (6, 1, 6);
-INSERT INTO `role_menus` VALUES (7, 1, 7);
-INSERT INTO `role_menus` VALUES (8, 1, 8);
-INSERT INTO `role_menus` VALUES (9, 1, 9);
-INSERT INTO `role_menus` VALUES (10, 1, 10);
-INSERT INTO `role_menus` VALUES (11, 1, 11);
-INSERT INTO `role_menus` VALUES (12, 1, 12);
-INSERT INTO `role_menus` VALUES (13, 1, 13);
-INSERT INTO `role_menus` VALUES (14, 1, 14);
-INSERT INTO `role_menus` VALUES (15, 1, 15);
-INSERT INTO `role_menus` VALUES (16, 1, 16);
-INSERT INTO `role_menus` VALUES (17, 1, 17);
-INSERT INTO `role_menus` VALUES (18, 1, 18);
-INSERT INTO `role_menus` VALUES (19, 1, 19);
-INSERT INTO `role_menus` VALUES (20, 1, 20);
-INSERT INTO `role_menus` VALUES (21, 1, 21);
-INSERT INTO `role_menus` VALUES (22, 1, 22);
-INSERT INTO `role_menus` VALUES (23, 1, 23);
-INSERT INTO `role_menus` VALUES (24, 1, 24);
-INSERT INTO `role_menus` VALUES (25, 1, 25);
-INSERT INTO `role_menus` VALUES (26, 1, 26);
-INSERT INTO `role_menus` VALUES (27, 1, 27);
-INSERT INTO `role_menus` VALUES (28, 1, 28);
-INSERT INTO `role_menus` VALUES (29, 1, 29);
-INSERT INTO `role_menus` VALUES (30, 1, 30);
-INSERT INTO `role_menus` VALUES (31, 1, 31);
-INSERT INTO `role_menus` VALUES (32, 1, 32);
-INSERT INTO `role_menus` VALUES (33, 1, 33);
-INSERT INTO `role_menus` VALUES (34, 1, 34);
-INSERT INTO `role_menus` VALUES (35, 1, 35);
-INSERT INTO `role_menus` VALUES (36, 1, 36);
-INSERT INTO `role_menus` VALUES (38, 2, 1);
-INSERT INTO `role_menus` VALUES (39, 2, 2);
-INSERT INTO `role_menus` VALUES (40, 2, 3);
-INSERT INTO `role_menus` VALUES (41, 2, 9);
-INSERT INTO `role_menus` VALUES (42, 2, 10);
-INSERT INTO `role_menus` VALUES (43, 2, 11);
-INSERT INTO `role_menus` VALUES (44, 2, 12);
-INSERT INTO `role_menus` VALUES (45, 2, 13);
-INSERT INTO `role_menus` VALUES (46, 2, 14);
-INSERT INTO `role_menus` VALUES (47, 2, 15);
-INSERT INTO `role_menus` VALUES (48, 2, 4);
-INSERT INTO `role_menus` VALUES (49, 2, 16);
-INSERT INTO `role_menus` VALUES (50, 2, 17);
-INSERT INTO `role_menus` VALUES (51, 2, 18);
-INSERT INTO `role_menus` VALUES (52, 2, 19);
-INSERT INTO `role_menus` VALUES (53, 2, 20);
-INSERT INTO `role_menus` VALUES (54, 2, 5);
-INSERT INTO `role_menus` VALUES (55, 2, 21);
-INSERT INTO `role_menus` VALUES (56, 2, 22);
-INSERT INTO `role_menus` VALUES (57, 2, 23);
-INSERT INTO `role_menus` VALUES (58, 2, 24);
-INSERT INTO `role_menus` VALUES (59, 2, 6);
-INSERT INTO `role_menus` VALUES (60, 2, 25);
-INSERT INTO `role_menus` VALUES (61, 2, 26);
-INSERT INTO `role_menus` VALUES (62, 2, 27);
-INSERT INTO `role_menus` VALUES (63, 2, 28);
-INSERT INTO `role_menus` VALUES (64, 2, 7);
-INSERT INTO `role_menus` VALUES (65, 2, 29);
-INSERT INTO `role_menus` VALUES (66, 2, 30);
-INSERT INTO `role_menus` VALUES (67, 2, 31);
-INSERT INTO `role_menus` VALUES (68, 2, 32);
-INSERT INTO `role_menus` VALUES (69, 2, 8);
-INSERT INTO `role_menus` VALUES (70, 2, 33);
-INSERT INTO `role_menus` VALUES (71, 2, 34);
-INSERT INTO `role_menus` VALUES (72, 2, 35);
-INSERT INTO `role_menus` VALUES (73, 2, 36);
+INSERT INTO `role_menus` VALUES (385, 1, 1);
+INSERT INTO `role_menus` VALUES (386, 1, 2);
+INSERT INTO `role_menus` VALUES (387, 1, 3);
+INSERT INTO `role_menus` VALUES (388, 1, 4);
+INSERT INTO `role_menus` VALUES (389, 1, 5);
+INSERT INTO `role_menus` VALUES (390, 1, 6);
+INSERT INTO `role_menus` VALUES (391, 1, 7);
+INSERT INTO `role_menus` VALUES (392, 1, 8);
+INSERT INTO `role_menus` VALUES (393, 1, 9);
+INSERT INTO `role_menus` VALUES (394, 1, 10);
+INSERT INTO `role_menus` VALUES (395, 1, 11);
+INSERT INTO `role_menus` VALUES (396, 1, 12);
+INSERT INTO `role_menus` VALUES (397, 1, 13);
+INSERT INTO `role_menus` VALUES (398, 1, 14);
+INSERT INTO `role_menus` VALUES (399, 1, 15);
+INSERT INTO `role_menus` VALUES (400, 1, 16);
+INSERT INTO `role_menus` VALUES (401, 1, 17);
+INSERT INTO `role_menus` VALUES (402, 1, 18);
+INSERT INTO `role_menus` VALUES (403, 1, 19);
+INSERT INTO `role_menus` VALUES (404, 1, 20);
+INSERT INTO `role_menus` VALUES (405, 1, 21);
+INSERT INTO `role_menus` VALUES (406, 1, 22);
+INSERT INTO `role_menus` VALUES (407, 1, 23);
+INSERT INTO `role_menus` VALUES (408, 1, 24);
+INSERT INTO `role_menus` VALUES (409, 1, 25);
+INSERT INTO `role_menus` VALUES (410, 1, 26);
+INSERT INTO `role_menus` VALUES (411, 1, 27);
+INSERT INTO `role_menus` VALUES (412, 1, 28);
+INSERT INTO `role_menus` VALUES (413, 1, 29);
+INSERT INTO `role_menus` VALUES (414, 1, 30);
+INSERT INTO `role_menus` VALUES (415, 1, 31);
+INSERT INTO `role_menus` VALUES (416, 1, 32);
+INSERT INTO `role_menus` VALUES (417, 1, 33);
+INSERT INTO `role_menus` VALUES (418, 1, 34);
+INSERT INTO `role_menus` VALUES (419, 1, 35);
+INSERT INTO `role_menus` VALUES (420, 1, 36);
+INSERT INTO `role_menus` VALUES (421, 1, 38);
+INSERT INTO `role_menus` VALUES (422, 1, 39);
+INSERT INTO `role_menus` VALUES (423, 1, 40);
+INSERT INTO `role_menus` VALUES (424, 1, 41);
+INSERT INTO `role_menus` VALUES (425, 1, 42);
+INSERT INTO `role_menus` VALUES (426, 1, 43);
+INSERT INTO `role_menus` VALUES (427, 1, 44);
+INSERT INTO `role_menus` VALUES (428, 1, 45);
+INSERT INTO `role_menus` VALUES (429, 1, 46);
+INSERT INTO `role_menus` VALUES (430, 1, 47);
+INSERT INTO `role_menus` VALUES (431, 1, 48);
+INSERT INTO `role_menus` VALUES (432, 1, 49);
+INSERT INTO `role_menus` VALUES (433, 2, 2);
+INSERT INTO `role_menus` VALUES (434, 2, 3);
+INSERT INTO `role_menus` VALUES (435, 2, 9);
+INSERT INTO `role_menus` VALUES (436, 2, 10);
+INSERT INTO `role_menus` VALUES (437, 2, 11);
+INSERT INTO `role_menus` VALUES (438, 2, 14);
+INSERT INTO `role_menus` VALUES (439, 2, 4);
+INSERT INTO `role_menus` VALUES (440, 2, 16);
+INSERT INTO `role_menus` VALUES (441, 2, 17);
+INSERT INTO `role_menus` VALUES (442, 2, 18);
+INSERT INTO `role_menus` VALUES (443, 2, 19);
+INSERT INTO `role_menus` VALUES (444, 2, 20);
+INSERT INTO `role_menus` VALUES (445, 2, 5);
+INSERT INTO `role_menus` VALUES (446, 2, 21);
+INSERT INTO `role_menus` VALUES (447, 2, 22);
+INSERT INTO `role_menus` VALUES (448, 2, 23);
+INSERT INTO `role_menus` VALUES (449, 2, 24);
+INSERT INTO `role_menus` VALUES (450, 2, 6);
+INSERT INTO `role_menus` VALUES (451, 2, 25);
+INSERT INTO `role_menus` VALUES (452, 2, 26);
+INSERT INTO `role_menus` VALUES (453, 2, 27);
+INSERT INTO `role_menus` VALUES (454, 2, 28);
+INSERT INTO `role_menus` VALUES (455, 2, 7);
+INSERT INTO `role_menus` VALUES (456, 2, 29);
+INSERT INTO `role_menus` VALUES (457, 2, 30);
+INSERT INTO `role_menus` VALUES (458, 2, 31);
+INSERT INTO `role_menus` VALUES (459, 2, 32);
+INSERT INTO `role_menus` VALUES (460, 2, 8);
+INSERT INTO `role_menus` VALUES (461, 2, 33);
+INSERT INTO `role_menus` VALUES (462, 2, 34);
+INSERT INTO `role_menus` VALUES (463, 2, 35);
+INSERT INTO `role_menus` VALUES (464, 2, 36);
 
 -- ----------------------------
 -- Table structure for roles
@@ -293,13 +358,13 @@ CREATE TABLE `roles`  (
   `updatedAt` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
-INSERT INTO `roles` VALUES (1, '超级管理员', 'admin', 1, '1', '1', '0', NULL, '2021-07-08 14:52:13', 'admin', NULL, NULL);
-INSERT INTO `roles` VALUES (2, '测试', 'ces', 1, '1', '1', '0', '测试', '2021-07-12 14:46:04', 'admin', '2021-07-13 10:17:31', 'admin');
+INSERT INTO `roles` VALUES (1, '超级管理员', 'admin', 1, '1', '1', '0', NULL, '2021-07-08 14:52:13', 'admin', '2021-11-23 14:59:27', 'admin');
+INSERT INTO `roles` VALUES (2, '测试', 'ces', 2, '1', '1', '0', '测试', '2021-07-12 14:46:04', 'admin', '2021-11-23 14:59:43', 'admin');
 
 -- ----------------------------
 -- Table structure for sequelizemeta
@@ -317,6 +382,7 @@ CREATE TABLE `sequelizemeta`  (
 INSERT INTO `sequelizemeta` VALUES ('20210608025759-create-departments.js');
 INSERT INTO `sequelizemeta` VALUES ('20210608025759-create-dict-data.js');
 INSERT INTO `sequelizemeta` VALUES ('20210608025759-create-dict-type.js');
+INSERT INTO `sequelizemeta` VALUES ('20210608025759-create-logs.js');
 INSERT INTO `sequelizemeta` VALUES ('20210608025759-create-menus.js');
 INSERT INTO `sequelizemeta` VALUES ('20210608025759-create-notices.js');
 INSERT INTO `sequelizemeta` VALUES ('20210608025759-create-role-menu.js');
@@ -333,7 +399,7 @@ CREATE TABLE `user_roles`  (
   `userId` int(11) NOT NULL COMMENT '用户id',
   `roleId` int(11) NOT NULL COMMENT '角色id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_roles
@@ -350,6 +416,11 @@ INSERT INTO `user_roles` VALUES (10, 21, 1);
 INSERT INTO `user_roles` VALUES (11, 22, 1);
 INSERT INTO `user_roles` VALUES (20, 1, 1);
 INSERT INTO `user_roles` VALUES (21, 23, 2);
+INSERT INTO `user_roles` VALUES (22, 24, 2);
+INSERT INTO `user_roles` VALUES (23, 25, 1);
+INSERT INTO `user_roles` VALUES (24, 26, 1);
+INSERT INTO `user_roles` VALUES (25, 28, 1);
+INSERT INTO `user_roles` VALUES (28, 30, 2);
 
 -- ----------------------------
 -- Table structure for users
@@ -374,12 +445,12 @@ CREATE TABLE `users`  (
   `updatedBy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `userName`(`userName`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 1, 'admin', 'admin123', '1', '$2a$10$h9F9wNK9FBW3LQpjH/mGHurD88WNfYUVYwSRe0wnoYT8tJVAjK0Sm', '/uploads/1/CHP_1626139431608_login-bg.png', '789sd@qq.com', '13711031522', '0', '1', '', '2021-07-08 14:52:13', 'admin', '2021-07-09 15:14:59', 'admin');
+INSERT INTO `users` VALUES (1, 1, 'admin', 'admin123', '1', '$2a$10$h9F9wNK9FBW3LQpjH/mGHurD88WNfYUVYwSRe0wnoYT8tJVAjK0Sm', '/uploads/1/CHP_1634630176570_16f194d7b8580d2950c33ab2c9e549d2.jpg', '789sd@qq.com', '13711031522', '0', '1', '', '2021-07-08 14:52:13', 'admin', '2021-07-09 15:14:59', 'admin');
 INSERT INTO `users` VALUES (2, 1, 'test', 'test', '1', '$2a$10$7WZrqgx9U11UFnFPuRChJOvA5m65.I..eL.v8WrGeeml1BlkqhHxm', NULL, NULL, NULL, '0', '1', NULL, '2021-07-08 14:52:39', 'admin', NULL, NULL);
 INSERT INTO `users` VALUES (3, 1, 'test1', 'test', '1', '$2a$10$0KQwEw7S9M/sTrk/NWVhTOEudmYt5MyoXDdy9j2FLXRbw/IJIrT7W', NULL, NULL, '13444556620', '0', '1', NULL, '2021-07-08 14:55:28', 'admin', NULL, NULL);
 INSERT INTO `users` VALUES (4, 1, 'test11', 'test', '1', '$2a$10$iAZsm036g5WJU4ZZC/1SSuLKd1ikV80B.kQaDvLWYXOafRXniCdB2', NULL, NULL, NULL, '0', '1', NULL, '2021-07-08 14:55:45', 'admin', NULL, NULL);
@@ -390,6 +461,11 @@ INSERT INTO `users` VALUES (19, 1, 'yunjiggggggg', 'test', '1', '$2a$10$zhGC14Ih
 INSERT INTO `users` VALUES (20, 1, 'testfd', 'test', '1', '$2a$10$CKoU7pCd9KQfszP3BDdPeO2G6f6.A06e2/G8.N7cebVeON0Onk8Om', NULL, NULL, NULL, '0', '1', NULL, '2021-07-08 15:20:02', 'admin', NULL, NULL);
 INSERT INTO `users` VALUES (21, 2, 'test34', 'test11', '1', '$2a$10$xgDtclT3sjvCmORV7QJ.t./PT531dR08DPRFS17Ihm1a3nJ6Lq7My', NULL, NULL, NULL, '0', '1', NULL, '2021-07-08 15:20:17', 'admin', NULL, NULL);
 INSERT INTO `users` VALUES (22, 2, 'admindsfs', 'test', '1', '$2a$10$XQrYh2Yd9HkGBanVKidZJuMlFzDIVc3fxeudMuQvkoxqtUwmCaeYu', NULL, NULL, NULL, '0', '1', NULL, '2021-07-08 15:20:36', 'admin', NULL, NULL);
-INSERT INTO `users` VALUES (23, 1, 'cai', 'cai', '1', '$2a$10$eyp9Ra.Ks3gk2ovefOaYsewU4z6Tu.qFIIMN8ebL0bbNoMKkGTZwm', NULL, NULL, NULL, '0', '1', NULL, '2021-07-13 10:18:06', 'admin', NULL, NULL);
+INSERT INTO `users` VALUES (23, 1, 'cai', 'cai', '1', '$2a$10$y3QoXgel4d3vBMryPrSWdue2Wr/WvGxClTe1LActZ1HQ.Q7YdmGLa', NULL, NULL, NULL, '0', '1', NULL, '2021-07-13 10:18:06', 'admin', NULL, NULL);
+INSERT INTO `users` VALUES (24, 2, 'ZB01001', 'test11', '0', '$2a$10$eNJGAE3hTtkKTzVW96y8VuSFDoVynp1EOpXa12.g4bW0CLDVYabiC', NULL, NULL, '13444556620', '0', '1', NULL, '2021-10-19 15:56:52', 'admin', NULL, NULL);
+INSERT INTO `users` VALUES (25, 1, 'caitt', 'cddd', '0', '$2a$10$CXHRrXHi22HkukSigtGjU.y3Np/mjLSbQGHdFZtTJ73wxUshr4O1i', NULL, NULL, NULL, '0', '1', NULL, '2021-11-22 19:42:11', 'admin', NULL, NULL);
+INSERT INTO `users` VALUES (26, 1, 'cai5tt', 'cddd', '0', '$2a$10$iCEwvhgHtWDISzfOJdL32Og.sVsGP1Nyz/M/4V.SPOiElx8VfF2om', NULL, NULL, NULL, '0', '1', NULL, '2021-11-23 09:10:30', 'admin', NULL, NULL);
+INSERT INTO `users` VALUES (28, 1, 'cai25tt', 'cddd', '0', '$2a$10$XGlPyRxsJZ/CmjgrT8EMb.lhkkUDwQE1VXVevfMdKK6ZxWqs097Xe', NULL, NULL, NULL, '0', '1', NULL, '2021-11-23 09:20:43', 'admin', NULL, NULL);
+INSERT INTO `users` VALUES (30, 3, 'sdfff', '富士达', '1', '$2a$10$BBngMRpYaiG9hNnGbw/Obu4uDUEhB053ecKShrSo93f4T.AKwA1ri', NULL, '1670345555@qq.com', '13444556620', '0', '1', NULL, '2021-11-23 14:58:49', 'admin', NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

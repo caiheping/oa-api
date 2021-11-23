@@ -1,0 +1,15 @@
+{
+  "name": "api文档",
+  "version": "1.0.0",
+  "title": "接口文档浏览器标题",
+  "description": "这是api文档",
+  "url" : "http://127.0.0.1:7002/api/v1",
+  "header": {
+    "title": "接口通用规则",
+    "filename": "./header.md"
+  },
+  "footer": {
+    "title": "API 错误返回值说明",
+    "filename": "./footer.md"
+  }
+}

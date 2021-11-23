@@ -3,10 +3,22 @@ const Controller = require('egg').Controller;
 
 class BaseController extends Controller {
 
-  // 查询
+  /**
+   * @api {get} /admin/system/模块名 查询列表
+   * @apiName 查询列表
+   * @apiGroup Base-通用接口
+   *
+   * @apiParam {Number} [pageSize] 一页条数
+   * @apiParam {Number} [pageNum] 页码
+   * @apiSuccessExample
+      {
+        "code": 100010,
+        "message": "查询成功",
+        "data": {...}
+      }
+   */
   async index() {
     const { ctx, service } = this;
-    console.log(9999999999);
     // 查询参数
     const query = {
       limit: ctx.helper.parseInt(ctx.query.pageSize),
@@ -16,7 +28,19 @@ class BaseController extends Controller {
     ctx.returnBody(result, 100010);
   }
 
-  // 查询单个
+  /**
+   * @api {get} /admin/system/模块名/:id 查询单个
+   * @apiName 查询单个
+   * @apiGroup Base-通用接口
+   *
+   * @apiParam {Number} id id
+   * @apiSuccessExample
+      {
+        "code": 100010,
+        "message": "查询成功",
+        "data": {...}
+      }
+   */
   async show() {
     const { ctx, service } = this;
     const validateResult = await ctx.checkValidate(ctx.params, 'base.show');
@@ -26,7 +50,19 @@ class BaseController extends Controller {
     ctx.returnBody(result, 100010);
   }
 
-  // 新增
+  /**
+   * @api {post} /admin/system/模块名 新增
+   * @apiName 新增
+   * @apiGroup Base-通用接口
+   *
+   * @apiParam {Object} query 参数
+   * @apiSuccessExample
+      {
+        "code": 100030,
+        "message": "修改成功",
+        "data": null
+      }
+   */
   async create() {
     const { ctx, service } = this;
     const validateResult = await ctx.checkValidate(ctx.request.body, this.serviceName + '.create');
@@ -42,7 +78,19 @@ class BaseController extends Controller {
     }
   }
 
-  // 修改
+  /**
+   * @api {put} /admin/system/模块名/:id 修改
+   * @apiName 修改
+   * @apiGroup Base-通用接口
+   *
+   * @apiParam {Object} query 参数
+   * @apiSuccessExample
+      {
+        "code": 100030,
+        "message": "修改成功",
+        "data": null
+      }
+   */
   async update() {
     const { ctx, service } = this;
     const validateResult = await ctx.checkValidate(ctx.request.body, this.serviceName + '.update');
@@ -61,7 +109,19 @@ class BaseController extends Controller {
     }
   }
 
-  // 删除
+  /**
+   * @api {delete} /admin/system/模块名/:id 删除
+   * @apiName 删除
+   * @apiGroup Base-通用接口
+   *
+   * @apiParam {String} id 用户ids 例如：1,2,3
+   * @apiSuccessExample
+      {
+        "code": 100040,
+        "message": "删除成功",
+        "data": null
+      }
+   */
   async destroy() {
     const { ctx, service } = this;
     const validateResult = await ctx.checkValidate(ctx.params, 'base.destroy');
