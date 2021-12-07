@@ -53,11 +53,6 @@ class Service extends BaseService {
 
   // 新增
   async create(query) {
-    // query.name = query.component; // name 和 component 一样
-    if (query.path) {
-      const componentName = query.path.replace(/^\//, '');
-      query.name = componentName.charAt(0).toUpperCase() + componentName.slice(1);
-    }
     try {
       return await this.ctx.model[this.modelName].create(query);
     } catch (error) {
@@ -72,9 +67,13 @@ class Service extends BaseService {
 
   // 修改
   async update(query, where) {
-    return await this.ctx.model[this.modelName].update(query, {
-      where,
-    });
+    try {
+      return await this.ctx.model[this.modelName].update(query, {
+        where,
+      });
+    } catch (error) {
+      throw Error('服务器错误！');
+    }
   }
 
   // 刪除id
