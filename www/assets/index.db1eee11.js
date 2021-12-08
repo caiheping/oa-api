@@ -1,0 +1,1 @@
+import{_ as e}from"./index.aca53cb1.js";import{d as t,t as s,y as n}from"./ant-design-vue.a8492f24.js";const o=t({setup(){return{}}}),a={class:"p-4"};function r(c,p,_,d,i,f){return s(),n("h1",a,"\u5F85\u5B9A")}var l=e(o,[["render",r]]);export{l as default};

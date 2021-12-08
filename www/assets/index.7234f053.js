@@ -1,1 +1,0 @@
-import{H as t}from"./index.33154688.js";function o(e={}){return t("/admin/system/role","GET",e)}function s(e){return t("/admin/system/role/"+e,"GET",{},!1)}function r(e={}){return t("/admin/system/role","POST",e)}function a(e={}){return t("/admin/system/role/"+e.id,"PUT",e)}function d(e){return t("/admin/system/role/"+e,"DELETE")}export{r as a,s as b,d,o as g,a as u};
