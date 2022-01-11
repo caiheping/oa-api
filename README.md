@@ -34,11 +34,11 @@ npm install
 
 然后修改config/config.default.js和database/config.json（如果你不是sequelize的命令生成数据的话，这个改不改都行）下自己的数据库用户名和密码
 
-创建数据库egg_oa_sys
+创建数据库egg-oa-sys
 
-master分支运行：在egg_oa_sys数据库下导入项目根目录下 egg-oa-sys.sql 文件
+master分支运行：在egg-oa-sys数据库下导入项目根目录下 egg-oa-sys.sql 文件
 
-feature-oa分支运行：在egg_oa_sys数据库下导入项目根目录下 egg-oa-sys-2021-09-17-基础功能完成.sql 文件
+feature-oa分支运行：在egg-oa-sys数据库下导入项目根目录下 egg-oa-sys-2021-09-17-基础功能完成.sql 文件
 
 **备注：切换分支时要把数据库清空，重新导入对应分支的sql文件**
 
